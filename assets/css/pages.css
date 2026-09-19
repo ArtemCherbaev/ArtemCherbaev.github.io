@@ -1,0 +1,129 @@
+/* Shared styling for the sub pages: CV, QA suite, 404.
+   Loaded after styles.css, which owns the tokens. */
+
+.page{padding:calc(var(--header-h) + 64px) 0 96px}
+.page-head{max-width:70ch;margin-bottom:44px}
+.page-head h1{
+  font-family:var(--font-display);font-size:clamp(2rem,4vw,2.75rem);
+  line-height:1.12;letter-spacing:-.02em;margin:0 0 10px;
+}
+.page-head .sub{color:var(--ink-soft);font-size:1.0625rem;margin:0}
+.back{
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:26px;
+  font-size:.875rem;text-decoration:none;color:var(--ink-soft);
+}
+.back:hover{color:var(--teal-dark)}
+.back svg{flex:none}
+
+/* ---------- CV ---------- */
+.cv-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.cv-grid{display:grid;grid-template-columns:minmax(0,1fr) 296px;gap:56px;align-items:start}
+.cv-section{margin-bottom:44px}
+.cv-section > h2{
+  font-size:1.0625rem;font-family:var(--font-mono);font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--teal);
+  padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:22px;
+}
+.cv-role{margin-bottom:28px}
+.cv-role:last-child{margin-bottom:0}
+.cv-role h3{font-size:1.0625rem;margin-bottom:2px}
+.cv-role .where{font-size:.875rem;color:var(--teal-dark);font-weight:500;margin:0 0 2px}
+.cv-role .when{font-family:var(--font-mono);font-size:.75rem;color:var(--ink-faint);margin:0 0 12px}
+.cv-role ul{margin:0;padding-left:20px}
+.cv-role li{font-size:.9375rem;color:var(--ink-soft);margin-bottom:7px;text-align:justify;hyphens:auto}
+
+.cv-aside{
+  position:sticky;top:calc(var(--header-h) + 24px);
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--card-wash);padding:26px 24px;
+}
+.cv-aside h2{
+  font-size:.75rem;font-family:var(--font-mono);font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--teal);margin:0 0 14px;
+}
+.cv-aside + .cv-aside{margin-top:22px}
+.cv-aside ul{list-style:none;margin:0;padding:0}
+.cv-aside li{font-size:.875rem;color:var(--ink-soft);padding:6px 0;border-bottom:1px solid var(--line-soft)}
+.cv-aside li:last-child{border-bottom:0}
+.cv-aside a{text-decoration:none;border-bottom:1.5px solid var(--teal-wash);word-break:break-word}
+.cv-aside a:hover{border-bottom-color:var(--teal)}
+
+/* ---------- QA suite page ---------- */
+.run-steps{counter-reset:step;list-style:none;margin:0 0 44px;padding:0}
+.run-steps li{
+  counter-increment:step;position:relative;padding:0 0 22px 52px;
+  border-left:1px solid var(--line);margin-left:16px;
+}
+.run-steps li:last-child{border-left-color:transparent;padding-bottom:0}
+.run-steps li::before{
+  content:counter(step,decimal-leading-zero);
+  position:absolute;left:-16px;top:-2px;width:32px;height:32px;border-radius:50%;
+  display:grid;place-items:center;background:var(--teal-dark);color:#fff;
+  font-family:var(--font-mono);font-size:.6875rem;
+}
+.run-steps h3{margin-bottom:6px}
+.run-steps p{font-size:.9375rem;color:var(--ink-soft);margin-bottom:10px}
+
+pre.cmd{
+  margin:0;padding:14px 18px;border-radius:10px;overflow-x:auto;
+  background:var(--panel);color:var(--panel-text);
+  font-family:var(--font-mono);font-size:.8125rem;line-height:1.8;
+}
+pre.cmd .c{color:#7fd3c4}
+
+.report-table{width:100%;border-collapse:collapse;margin-top:22px;font-size:.9375rem}
+.report-table th,.report-table td{
+  text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top;
+}
+.report-table th{
+  font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:500;
+}
+.report-table td:first-child{white-space:nowrap}
+.report-table a{text-decoration:none;border-bottom:1.5px solid var(--teal-wash);font-weight:500}
+.report-table a:hover{border-bottom-color:var(--teal)}
+.report-table .desc{color:var(--ink-soft)}
+
+/* ---------- 404 ---------- */
+.lost{min-height:70vh;display:grid;place-items:center;text-align:center}
+.lost .code{
+  font-family:var(--font-mono);font-size:.75rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:16px;
+}
+.lost h1{font-family:var(--font-script);font-size:clamp(3rem,8vw,5rem);color:var(--teal-dark);font-weight:400;margin:0 0 12px}
+.lost p{color:var(--ink-soft);max-width:48ch;margin:0 auto 26px}
+
+@media (max-width:960px){
+  .cv-grid{grid-template-columns:1fr;gap:40px}
+  .cv-aside{position:static}
+}
+
+/* ---------- print: the CV page is the fallback for the PDF ---------- */
+@media print{
+  .site-header,.site-footer,.back,.cv-actions,.skip{display:none !important}
+  body{background:#fff;font-size:10.5pt;line-height:1.5}
+  .page{padding:0}
+  .wrap{max-width:none;padding:0}
+  .cv-grid{grid-template-columns:minmax(0,1fr) 220px;gap:28px}
+  .cv-aside{background:none;border-color:#ccc;padding:14px 16px}
+  .cv-section{margin-bottom:22px;break-inside:avoid}
+  .cv-role{break-inside:avoid}
+  a{color:#000;text-decoration:none}
+}
+
+/* ---------- small utilities ----------
+   Same reason as the timeline classes: no inline styles, because the CSP has no
+   unsafe-inline and the suite treats the resulting console error as a failure. */
+.mt-section{margin-top:56px}
+.actions-centered{justify-content:center}
+
+/* ---------- corrections found by looking at the rendered pages ----------
+   styles.css gives every <section> the landing page's rhythm: 104px of padding
+   and a rule between siblings. Inside a sub page those sections are blocks of a
+   document, not screens of a scroll, so the rhythm belongs to .page instead. */
+.page section{padding:0}
+.page section + section{border-top:0}
+
+/* A placeholder on a block element underlined the whole line, which read as an
+   empty form field rather than as missing text. */
+p.todo,h3.todo,li.todo{width:fit-content;max-width:100%}

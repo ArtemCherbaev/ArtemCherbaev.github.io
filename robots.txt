@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://artemcherbaev.github.io/portfolio/sitemap.xml

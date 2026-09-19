@@ -1,0 +1,15 @@
+node_modules/
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+playwright-report/
+test-results/
+reports/
+blob-report/
+.DS_Store
+Thumbs.db
+*.log
