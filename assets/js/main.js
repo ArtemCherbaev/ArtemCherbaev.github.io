@@ -80,7 +80,7 @@
     });
   }
 
-  expander('moreRoles', '.tl-extra', 'Show the earlier roles', 'Show fewer roles');
+  expander('moreRoles', '.tl-extra', 'Show the full detail', 'Show less detail');
   expander('moreSkills', '.t-extra', 'Show the rest of my skills', 'Show fewer skills');
 
   /* ---------- contact form, opened on request ---------- */

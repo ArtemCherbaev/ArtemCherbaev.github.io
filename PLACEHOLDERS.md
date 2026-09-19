@@ -1,42 +1,47 @@
 # Placeholders
 
-Everything below is a fact only you know, so it ships as a visible placeholder rather than an
-invention. In the browser each one renders amber with a dotted underline (`.todo` in
-`assets/css/styles.css`), which makes an unfinished page obvious at a glance instead of plausible.
+Almost everything is now filled in from the CV. What is left is either a fact the CV does not state
+or a file only you can supply.
 
-Work top to bottom, delete the `todo` class as you replace each one, and delete this file when the
-list is empty. Grep for what is left at any point:
+In the browser the remaining text placeholders render amber with a dotted underline (`.todo` in
+`assets/css/styles.css`), so an unfinished page stays obvious rather than plausible. Grep for what is
+left at any point:
 
 ```bash
 grep -rn "todo" index.html cv.html
 ```
 
-## index.html
+## Two dates the CV does not give
 
-| Where                  | What to write                                                                    |
-| ---------------------- | -------------------------------------------------------------------------------- |
-| Hero, `.hero-meta`     | City, country and UTC offset.                                                    |
-| About, `.facts`        | Four numbers: years in QA, years in automation, years of agentic work, industries. |
-| Experience, each role  | Dates, employer, what you owned, and the measured result. Two roles are visible, two more are in the document behind "Show the earlier roles" — delete the ones you do not need. |
-| Skills timeline        | "since MM/YYYY" and the duration for each row. The bar position is the `left:` percentage on `.t-bar`, where 0% is 2019 and 100% is now. |
-| Impact, `.impact-grid` | Four before-and-after numbers. If you cannot source one, delete the tile rather than round it up. |
-| Contact                | LinkedIn handle, and city plus UTC offset again.                                 |
+Both are in the skills timeline in [`index.html`](index.html). The CV says the Playwright migration
+happened "as the front end matured" and that AI-assisted QA was "pioneered", without dating either.
 
-## cv.html
+| Row                                             | What to write                                                                                     |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Playwright, TypeScript and Python               | The month and year you led the migration, and the duration. Then set the bar's `from-YYYY` class. |
+| AI-assisted and agentic QA, Claude Code and MCP | The month and year you started, and the duration. Same class on the bar.                          |
 
-| Where             | What to write                                                       |
-| ----------------- | ------------------------------------------------------------------- |
-| Experience        | The same roles as the landing page, with the detail the summary drops. |
-| Education         | Degree, institution, year.                                          |
-| Certification     | Any certifications worth the space, with issuer and year.           |
-| Aside, contact    | LinkedIn handle, city and UTC offset.                               |
-| Aside, languages  | Languages beyond English.                                           |
+The bar classes are `from-2021` through `from-2026`, defined at the bottom of
+[`assets/css/styles.css`](assets/css/styles.css). The axis runs 2021 to now, so each year is a fifth
+of the track. Currently Playwright is drawn from 2023 and AI-assisted QA from 2025; correct both to
+the real years and delete the `todo` class from the two `<small>` labels and the two durations.
 
-## Files rather than text
+## Files and accounts
 
-| What                                    | Why it matters                                                                  |
-| --------------------------------------- | -------------------------------------------------------------------------------- |
-| `assets/cv/Artem-Cherbaev-CV.pdf`       | Linked from the header, the contact list and the CV page. It is listed in `PENDING` in `tests/links.spec.ts`; delete that entry once the file is committed so the check starts enforcing it. |
-| `assets/img/portrait.svg`               | Replace with a photograph. Keep it square; it is cropped to a circle at 258px.   |
-| Formspree endpoint in `index.html`      | `action="https://formspree.io/f/REPLACE_ME"`. Until it is real, the form is inert. |
-| `artemcherbaev` in URLs                 | If your GitHub username differs, it appears in both HTML pages, `robots.txt`, `sitemap.xml`, the README and `tests/links.spec.ts`. |
+| What                               | Why it matters                                                                                                                                                                                   |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `assets/img/portrait.svg`          | Currently a monogram placeholder reading "replace with a photo". Swap in a square photograph; it is cropped to a circle at 258px. Keep the filename or update the three pages that reference it. |
+| Formspree endpoint in `index.html` | `action="https://formspree.io/f/REPLACE_ME"`. Until it is real the contact form is inert on purpose, rather than quietly dropping mail. Email and LinkedIn work regardless.                      |
+| `artemcherbaev` in URLs            | If your GitHub username differs, it appears in both HTML pages, `robots.txt`, `sitemap.xml`, the README and `tests/links.spec.ts`.                                                               |
+
+## Two judgement calls worth checking
+
+**The title.** The site says "QA Engineer, manual and automation", which is what your CV says. The
+contact section says you are open to QA Automation Engineer and SDET roles, which is a statement
+about what you want rather than a claim about what you were. If you would rather lead with a senior
+title, change the `.role` line in `index.html` and the `.sub` line in `cv.html` — but the CV a
+recruiter opens two clicks later should agree with it.
+
+**The email.** The site uses `artemcherbaevjob@gmail.com`, the address on the CV, not the personal
+one. `tests/smoke.spec.ts` asserts it, so changing it fails the suite until the test is updated too,
+which is the intended behaviour.

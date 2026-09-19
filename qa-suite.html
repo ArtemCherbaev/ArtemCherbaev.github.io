@@ -1,143 +1,298 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; frame-src 'none'">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<link rel="canonical" href="https://artemcherbaev.github.io/portfolio/qa-suite.html">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<title>Run the QA suites, Artem Cherbaev</title>
-<meta name="description" content="How to run the agentic Playwright suite locally, what each published report shows, and what the pipeline does on every push.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=20260918">
-<link rel="stylesheet" href="assets/css/pages.css?v=20260918">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; frame-src 'none'"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link
+      rel="canonical"
+      href="https://artemcherbaev.github.io/portfolio/qa-suite.html"
+    />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <title>Run the QA suites, Artem Cherbaev</title>
+    <meta
+      name="description"
+      content="How to run the agentic Playwright suite locally, what each published report shows, and what the pipeline does on every push."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260919" />
+    <link rel="stylesheet" href="assets/css/pages.css?v=20260919" />
+  </head>
+  <body>
+    <header class="site-header is-stuck" id="siteHeader">
+      <div class="wrap header-inner">
+        <a class="monogram" href="index.html"
+          ><svg
+            class="mark"
+            viewBox="0 0 32 32"
+            width="30"
+            height="30"
+            aria-hidden="true"
+            focusable="false"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 22 L10 9 L16 22" />
+            <path d="M6.6 17.6 H13.4" />
+            <path d="M19 22 L23 26 L29 8" /></svg
+          ><em>Portfolio</em></a
+        >
+        <nav class="nav" aria-label="Main">
+          <a href="index.html#about">About</a>
+          <a href="index.html#experience">Experience</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#contact">Contact</a>
+          <a
+            class="nav-page"
+            href="assets/cv/Artem-Cherbaev-CV.pdf"
+            download="Artem-Cherbaev-CV.pdf"
+            title="Download the CV, 2 page PDF"
+            aria-label="Download the CV, 2 page PDF"
+            ><svg
+              class="dl-icon"
+              viewBox="0 0 24 24"
+              width="15"
+              height="15"
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 3.5v10.5" />
+              <path d="M7.7 10.2 12 14.5l4.3-4.3" />
+              <path d="M4.5 19.5h15" /></svg
+            >CV</a
+          >
+        </nav>
+      </div>
+    </header>
 
-<header class="site-header is-stuck" id="siteHeader">
-  <div class="wrap header-inner">
-    <a class="monogram" href="index.html"><svg class="mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22 L10 9 L16 22"/><path d="M6.6 17.6 H13.4"/><path d="M19 22 L23 26 L29 8"/></svg><em>Portfolio</em></a>
-    <nav class="nav" aria-label="Main">
-      <a href="index.html#about">About</a>
-      <a href="index.html#experience">Experience</a>
-      <a href="index.html#projects">Projects</a>
-      <a href="index.html#contact">Contact</a>
-      <a class="nav-page" href="assets/cv/Artem-Cherbaev-CV.pdf" download="Artem-Cherbaev-CV.pdf" title="Download the CV, 2 page PDF" aria-label="Download the CV, 2 page PDF"><svg class="dl-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v10.5"/><path d="M7.7 10.2 12 14.5l4.3-4.3"/><path d="M4.5 19.5h15"/></svg>CV</a>
-    </nav>
-  </div>
-</header>
+    <main class="page" id="top">
+      <div class="wrap">
+        <a class="back" href="index.html#projects"
+          ><svg
+            viewBox="0 0 24 24"
+            width="15"
+            height="15"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M19 12H6" />
+            <path d="m11.5 5.5-6.5 6.5 6.5 6.5" /></svg
+          >Back to projects</a
+        >
 
-<main class="page" id="top">
-  <div class="wrap">
+        <div class="page-head">
+          <h1>Run the QA suites</h1>
+          <p class="sub">
+            The agentic Playwright suite is public and runs on any machine with
+            Node and Docker. Below is how to run it yourself, and what each
+            published report answers.
+          </p>
+        </div>
 
-    <a class="back" href="index.html#projects"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6"/><path d="m11.5 5.5-6.5 6.5 6.5 6.5"/></svg>Back to projects</a>
+        <h2 class="subhead">Run it locally</h2>
+        <p class="subnote">
+          Four commands from a clean checkout. The visual suite runs in the same
+          image CI uses, because baselines are Chromium on Linux and a local
+          Windows or macOS run would compare against a set that was never
+          committed.
+        </p>
 
-    <div class="page-head">
-      <h1>Run the QA suites</h1>
-      <p class="sub">The agentic Playwright suite is public and runs on any machine with Node and Docker. Below
-        is how to run it yourself, and what each published report answers.</p>
-    </div>
-
-    <h2 class="subhead">Run it locally</h2>
-    <p class="subnote">Four commands from a clean checkout. The visual suite runs in the same image CI uses,
-      because baselines are Chromium on Linux and a local Windows or macOS run would compare against a set that
-      was never committed.</p>
-
-    <ol class="run-steps">
-      <li>
-        <h3>Clone and install</h3>
-        <p>Yarn 4 is pinned through Corepack, so there is nothing to install globally.</p>
-        <pre class="cmd"><span class="c">$</span> git clone https://github.com/artemcherbaev/agentic-playwright-suite.git
+        <ol class="run-steps">
+          <li>
+            <h3>Clone and install</h3>
+            <p>
+              Yarn 4 is pinned through Corepack, so there is nothing to install
+              globally.
+            </p>
+            <pre
+              class="cmd"
+            ><span class="c">$</span> git clone https://github.com/artemcherbaev/agentic-playwright-suite.git
 <span class="c">$</span> cd agentic-playwright-suite
 <span class="c">$</span> corepack enable
 <span class="c">$</span> yarn install</pre>
-      </li>
-      <li>
-        <h3>Install the browser</h3>
-        <p>Only Chromium is needed for the functional suite locally; CI adds WebKit.</p>
-        <pre class="cmd"><span class="c">$</span> yarn playwright:install:chromium</pre>
-      </li>
-      <li>
-        <h3>Run the functional suite</h3>
-        <p>Twenty end to end cases against the demo storefront. Add a grep while working on one case.</p>
-        <pre class="cmd"><span class="c">$</span> yarn test:e2e
+          </li>
+          <li>
+            <h3>Install the browser</h3>
+            <p>
+              Only Chromium is needed for the functional suite locally; CI adds
+              WebKit.
+            </p>
+            <pre
+              class="cmd"
+            ><span class="c">$</span> yarn playwright:install:chromium</pre>
+          </li>
+          <li>
+            <h3>Run the functional suite</h3>
+            <p>
+              Twenty end to end cases against the demo storefront. Add a grep
+              while working on one case.
+            </p>
+            <pre class="cmd"><span class="c">$</span> yarn test:e2e
 <span class="c">$</span> yarn playwright test --grep "TC-12"</pre>
-      </li>
-      <li>
-        <h3>Run the visual suite in the CI image</h3>
-        <p>Twenty screenshot comparisons against committed Linux baselines.</p>
-        <pre class="cmd"><span class="c">$</span> yarn docker:vr</pre>
-      </li>
-    </ol>
+          </li>
+          <li>
+            <h3>Run the visual suite in the CI image</h3>
+            <p>
+              Twenty screenshot comparisons against committed Linux baselines.
+            </p>
+            <pre class="cmd"><span class="c">$</span> yarn docker:vr</pre>
+          </li>
+        </ol>
 
-    <h2 class="subhead">Published on every push to main</h2>
-    <p class="subnote">Each report answers a different question, which is why there is more than one. All of
-      them are regenerated by the pipeline, never by hand.</p>
+        <h2 class="subhead">Published on every push to main</h2>
+        <p class="subnote">
+          Each report answers a different question, which is why there is more
+          than one. All of them are regenerated by the pipeline, never by hand.
+        </p>
 
-    <table class="report-table">
-      <thead>
-        <tr><th scope="col">Report</th><th scope="col">What it answers</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="https://artemcherbaev.github.io/agentic-playwright-suite/metrics/">Suite health</a></td>
-          <td class="desc">Pass rate, flaky rate, p50 and p95 duration, repeat offenders, each against a stated
-            threshold rather than a vibe.</td>
-        </tr>
-        <tr>
-          <td><a href="https://artemcherbaev.github.io/agentic-playwright-suite/">Test results</a></td>
-          <td class="desc">Both suites in one dashboard, with the Chromium and WebKit runs split under the
-            functional one.</td>
-        </tr>
-        <tr>
-          <td><a href="https://artemcherbaev.github.io/agentic-playwright-suite/functional/">Functional</a></td>
-          <td class="desc">The end to end suite on its own, with its trend across runs.</td>
-        </tr>
-        <tr>
-          <td><a href="https://artemcherbaev.github.io/agentic-playwright-suite/visual/">Visual</a></td>
-          <td class="desc">The screenshot suite on its own, with expected, actual and diff for any failure.</td>
-        </tr>
-        <tr>
-          <td><a href="https://artemcherbaev.github.io/agentic-playwright-suite/playwright-report/">Trace viewer</a></td>
-          <td class="desc">Every step of every case, replayable, including the network and the DOM at each step.</td>
-        </tr>
-      </tbody>
-    </table>
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th scope="col">Report</th>
+              <th scope="col">What it answers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <a
+                  href="https://artemcherbaev.github.io/agentic-playwright-suite/metrics/"
+                  >Suite health</a
+                >
+              </td>
+              <td class="desc">
+                Pass rate, flaky rate, p50 and p95 duration, repeat offenders,
+                each against a stated threshold rather than a vibe.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://artemcherbaev.github.io/agentic-playwright-suite/"
+                  >Test results</a
+                >
+              </td>
+              <td class="desc">
+                Both suites in one dashboard, with the Chromium and WebKit runs
+                split under the functional one.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://artemcherbaev.github.io/agentic-playwright-suite/functional/"
+                  >Functional</a
+                >
+              </td>
+              <td class="desc">
+                The end to end suite on its own, with its trend across runs.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://artemcherbaev.github.io/agentic-playwright-suite/visual/"
+                  >Visual</a
+                >
+              </td>
+              <td class="desc">
+                The screenshot suite on its own, with expected, actual and diff
+                for any failure.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://artemcherbaev.github.io/agentic-playwright-suite/playwright-report/"
+                  >Trace viewer</a
+                >
+              </td>
+              <td class="desc">
+                Every step of every case, replayable, including the network and
+                the DOM at each step.
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-    <h2 class="subhead mt-section">What the pipeline does</h2>
-    <table class="report-table">
-      <thead>
-        <tr><th scope="col">Trigger</th><th scope="col">Runs</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Pull request</td><td class="desc">Static checks, functional suite, visual suite.</td></tr>
-        <tr><td>Push to main</td><td class="desc">The same, then the dashboards and the suite health page publish.</td></tr>
-        <tr><td>Image or lockfile change</td><td class="desc">The execution image is rebuilt and pushed to the registry first.</td></tr>
-      </tbody>
-    </table>
+        <h2 class="subhead mt-section">What the pipeline does</h2>
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th scope="col">Trigger</th>
+              <th scope="col">Runs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pull request</td>
+              <td class="desc">
+                Static checks, functional suite, visual suite.
+              </td>
+            </tr>
+            <tr>
+              <td>Push to main</td>
+              <td class="desc">
+                The same, then the dashboards and the suite health page publish.
+              </td>
+            </tr>
+            <tr>
+              <td>Image or lockfile change</td>
+              <td class="desc">
+                The execution image is rebuilt and pushed to the registry first.
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-    <p class="subnote mt-section">Main is protected and takes no direct pushes. Every change
-      arrives through a pull request, and the only required check is a gate job that reads the result of all the
-      others, so a job that stops running cannot quietly stop being enforced.</p>
+        <p class="subnote mt-section">
+          Main is protected and takes no direct pushes. Every change arrives
+          through a pull request, and the only required check is a gate job that
+          reads the result of all the others, so a job that stops running cannot
+          quietly stop being enforced.
+        </p>
 
-    <div class="cv-actions">
-      <a class="btn btn-primary" href="https://github.com/artemcherbaev/agentic-playwright-suite">Open the repository</a>
-      <a class="btn btn-ghost" href="index.html#projects">Back to projects</a>
-    </div>
+        <div class="cv-actions">
+          <a
+            class="btn btn-primary"
+            href="https://github.com/artemcherbaev/agentic-playwright-suite"
+            >Open the repository</a
+          >
+          <a class="btn btn-ghost" href="index.html#projects"
+            >Back to projects</a
+          >
+        </div>
+      </div>
+    </main>
 
-  </div>
-</main>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <span>&copy; <span id="year">2026</span> Artem Cherbaev</span>
+        <span><a href="index.html">Back to the portfolio</a></span>
+      </div>
+    </footer>
 
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <span>&copy; <span id="year">2026</span> Artem Cherbaev</span>
-    <span><a href="index.html">Back to the portfolio</a></span>
-  </div>
-</footer>
-
-<script src="assets/js/main.js?v=20260918"></script>
-</body>
+    <script src="assets/js/main.js?v=20260919"></script>
+  </body>
 </html>

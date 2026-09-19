@@ -23,10 +23,10 @@ decoration: the navigation collapses below 680px and the hero reorders, and both
 
 ## What the suite checks
 
-| File                                     | Covers                                                                  |
-| ---------------------------------------- | ----------------------------------------------------------------------- |
+| File                                         | Covers                                                                                                                                                                               |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [`tests/smoke.spec.ts`](tests/smoke.spec.ts) | Each page answers 200, is titled, has exactly one `h1`, logs no console error. The expanders, the contact form and its labels, the 404 page, heading order, alt text, the skip link. |
-| [`tests/links.spec.ts`](tests/links.spec.ts) | Every internal link and asset resolves. That the stylesheet applied rather than merely downloaded. The canonical URL and the meta description. |
+| [`tests/links.spec.ts`](tests/links.spec.ts) | Every internal link and asset resolves. That the stylesheet applied rather than merely downloaded. The canonical URL and the meta description.                                       |
 
 External links are not followed. A third party being down is not a defect in this repository.
 
