@@ -1,87 +1,68 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, PAGES } from './fixtures';
 
 /**
- * Every internal link and asset on the site resolves.
+ * Every internal link and asset resolves; every external link is https.
  *
- * This is the check that catches the class of mistake a static site actually
- * makes: a renamed file, a stylesheet that stopped loading, a CV that was never
- * committed. External links are not followed, because a third party being down
- * is not a defect in this repository.
+ * External links are checked for shape, not followed: a third party being down
+ * is not a defect in this repository. The suite's own published site lives
+ * under /agentic-playwright-suite/ and is deployed by another repository, so it
+ * counts as external here too.
  */
+const OTHER_REPOSITORY = '/agentic-playwright-suite/';
 
-const PAGES = ["/", "/cv.html", "/qa-suite.html", "/404.html"];
+for (const { path } of PAGES) {
+  test(`${path}: every internal link and asset resolves`, async ({ page, request, baseURL }) => {
+    await page.goto(path);
+    const urls = await page.evaluate(() => [
+      ...[...document.querySelectorAll('a[href]')].map((a) => (a as HTMLAnchorElement).href),
+      ...[...document.querySelectorAll('link[href]')].map((l) => (l as HTMLLinkElement).href),
+      ...[...document.querySelectorAll('script[src], img[src]')].map((n) => (n as HTMLImageElement).src),
+    ]);
 
-/**
- * Assets known to be missing and deliberately not failing the suite yet. Empty,
- * and it should stay that way: an allowance that outlives its reason is how a
- * suite stops meaning anything. The CV PDF was the last entry here and is now
- * committed, so the check enforces it like every other link.
- */
-const PENDING: string[] = [];
+    const internal = [
+      ...new Set(
+        urls
+          .filter((u) => u.startsWith(baseURL!))
+          .map((u) => u.split('#')[0]!)
+          .filter((u) => !new URL(u).pathname.startsWith(OTHER_REPOSITORY)),
+      ),
+    ];
+    expect(internal.length).toBeGreaterThan(3);
 
-test.describe("internal links and assets resolve", () => {
-  for (const path of PAGES) {
-    test(`${path}`, async ({ page, request, baseURL }) => {
-      await page.goto(path);
+    for (const url of internal) {
+      const response = await request.get(url);
+      expect(response.status(), url).toBe(200);
+    }
+  });
 
-      const hrefs = await page.evaluate(() =>
-        Array.from(
-          document.querySelectorAll<HTMLElement>(
-            "a[href], link[href], script[src], img[src]",
-          ),
-        )
-          .map((el) => el.getAttribute("href") ?? el.getAttribute("src") ?? "")
-          .filter(Boolean),
-      );
-
-      const internal = hrefs
-        .filter((href) => !/^(https?:|mailto:|tel:|data:|#)/.test(href))
-        .map((href) => href.split("#")[0])
-        .filter(Boolean);
-
-      const unique = [...new Set(internal)];
-      expect(unique.length, `${path} should link to something`).toBeGreaterThan(
-        0,
-      );
-
-      const broken: string[] = [];
-      for (const href of unique) {
-        if (PENDING.some((pending) => href.startsWith(pending))) {
-          test
-            .info()
-            .annotations.push({ type: "pending asset", description: href });
-          continue;
-        }
-        const url = new URL(href, new URL(path, baseURL).href).href;
-        const response = await request.get(url);
-        if (!response.ok()) broken.push(`${href} -> ${response.status()}`);
+  test(`${path}: every external link is https and every fragment exists`, async ({ page, baseURL }) => {
+    await page.goto(path);
+    const links = await page.locator('a[href]').evaluateAll((nodes) =>
+      nodes.map((a) => ({ href: a.getAttribute('href')!, resolved: (a as HTMLAnchorElement).href })),
+    );
+    for (const { href, resolved } of links) {
+      if (href.startsWith('mailto:')) continue;
+      if (!resolved.startsWith(baseURL!)) {
+        expect(resolved, href).toMatch(/^https:\/\//);
+        continue;
       }
+      const url = new URL(resolved);
+      if (url.hash && url.pathname === new URL(page.url()).pathname) {
+        await expect(page.locator(url.hash), `${href} points at nothing`).toHaveCount(1);
+      }
+    }
+  });
+}
 
-      expect(broken, `${path} has links that do not resolve`).toEqual([]);
-    });
-  }
+test('the CV downloads as a PDF', async ({ request }) => {
+  const response = await request.get('/assets/cv/Artem-Cherbaev-CV.pdf');
+  expect(response.status()).toBe(200);
+  expect(response.headers()['content-type']).toBe('application/pdf');
+  expect((await response.body()).subarray(0, 5).toString()).toBe('%PDF-');
 });
 
-test("the stylesheet actually applied, not just downloaded", async ({
-  page,
-}) => {
-  await page.goto("/");
-  // A 200 on the CSS proves nothing if the selector never matched. The hero name
-  // is the one element whose look is unmistakable when the sheet is live.
-  const family = await page
-    .locator(".hero h1")
-    .evaluate((el) => getComputedStyle(el).fontFamily);
-  expect(family).toContain("Allura");
-});
-
-test("the published site declares where it lives", async ({ page }) => {
-  await page.goto("/");
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
-    "href",
-    "https://artemcherbaev.github.io/portfolio/",
-  );
-  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
-    "content",
-    /.{80,}/,
-  );
+test('the stylesheet is applied, not merely downloaded', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('body')).toHaveCSS('font-family', /Geist/);
+  await expect(page.locator('.btn-primary').first()).toHaveCSS('border-radius', '999px');
 });

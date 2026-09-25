@@ -27,3 +27,9 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+## Third party
+
+The Geist and Geist Mono typefaces in `assets/fonts/` are © Vercel, in collaboration with
+basement.studio, and are used under the SIL Open Font License 1.1, included as
+`assets/fonts/OFL.txt`. The GitHub mark is GitHub's trademark, used to link to GitHub.

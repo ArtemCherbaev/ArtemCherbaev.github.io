@@ -5,802 +5,856 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io; object-src 'none'; frame-src 'none'"
+      content="default-src 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta property="og:type" content="profile" />
-    <meta property="og:title" content="Artem Cherbaev, QA Engineer" />
-    <meta
-      property="og:description"
-      content="Five years owning quality end to end at a US broker-dealer. Playwright, Python and TypeScript, mobile and API automation, and AI-assisted testing with Claude Code and MCP."
-    />
-    <meta
-      property="og:url"
-      content="https://artemcherbaev.github.io/portfolio/"
-    />
-    <link rel="canonical" href="https://artemcherbaev.github.io/portfolio/" />
-    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-    <title>Artem Cherbaev, QA Engineer</title>
+    <title>Artem Cherbaev — QA Engineer</title>
     <meta
       name="description"
-      content="QA Engineer with five years owning quality end to end for web, mobile and microservice backends at a US broker-dealer. Playwright, Python and TypeScript, 1,450+ automated tests in CI/CD, and AI-assisted testing with Claude Code and MCP."
+      content="QA Engineer with five years owning quality end to end at a US broker-dealer: 1,450+ automated UI, API and E2E tests, Playwright and TypeScript, and AI-assisted testing with Claude Code and MCP. Open to QA Automation and SDET roles."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Allura&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
-      rel="stylesheet"
+    <link rel="canonical" href="https://artemcherbaev.github.io/" />
+    <meta name="theme-color" content="#0b6e4f" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Artem Cherbaev" />
+    <meta property="og:title" content="Artem Cherbaev — QA Engineer" />
+    <meta
+      property="og:description"
+      content="Five years owning quality end to end at a US broker-dealer. A public Playwright suite whose last CI run you can replay."
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260919" />
+    <meta property="og:url" content="https://artemcherbaev.github.io/" />
+    <meta property="og:image" content="https://artemcherbaev.github.io/assets/img/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+    <link rel="preload" href="assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <script src="assets/js/theme.js"></script>
+    <script type="module" src="assets/js/site.js"></script>
   </head>
   <body>
-    <a class="skip" href="#about">Skip to content</a>
+    <svg class="sr-only" aria-hidden="true" focusable="false">
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11" /><path d="m7 11 5 5 5-5" /><path d="M5 20h14" /></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" /></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7" /></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2" /><path d="M15 5H7a2 2 0 0 0-2 2v8" /></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m4 7 8 6 8-6" /></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" /></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4" /></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" /><circle cx="12" cy="9.5" r="2.5" /></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" /></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 15a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z" /></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9.5 6 6 6-6" /></symbol>
+      <symbol id="i-github" viewBox="0 0 16 16"><path fill="currentColor" stroke="none" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" /></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3.5" /><path d="M8 10.5V17M8 7.25v.01M12 17v-6.5M12 13.25c0-1.8 1.1-2.9 2.5-2.9s2.5 1 2.5 2.9V17" /></symbol>
+    </svg>
+
+    <a class="skip" href="#main">Skip to content</a>
 
     <header class="site-header" id="siteHeader">
       <div class="wrap header-inner">
-        <a class="monogram" href="#top"
-          ><svg
-            class="mark"
-            viewBox="0 0 32 32"
-            width="30"
-            height="30"
-            aria-hidden="true"
-            focusable="false"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.6"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M4 22 L10 9 L16 22" />
-            <path d="M6.6 17.6 H13.4" />
-            <path d="M19 22 L23 26 L29 8" /></svg
-          ><em>Portfolio</em></a
-        >
-        <nav class="nav" aria-label="Main">
-          <a href="#about">About</a>
+        <a class="brand" href="./" aria-label="Artem Cherbaev, home">
+          <span class="brand-mark" aria-hidden="true">AC</span>
+          <span class="brand-name">Artem Cherbaev</span>
+        </a>
+
+        <nav class="nav" id="siteNav" aria-label="Main">
+          <a href="#work">Work</a>
           <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
           <a href="#contact">Contact</a>
-          <a
-            class="nav-page"
-            href="assets/cv/Artem-Cherbaev-CV.pdf"
-            download="Artem-Cherbaev-CV.pdf"
-            title="Download the CV, 2 page PDF"
-            aria-label="Download the CV, 2 page PDF"
-            ><svg
-              class="dl-icon"
-              viewBox="0 0 24 24"
-              width="15"
-              height="15"
-              aria-hidden="true"
-              focusable="false"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.1"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M12 3.5v10.5" />
-              <path d="M7.7 10.2 12 14.5l4.3-4.3" />
-              <path d="M4.5 19.5h15" /></svg
-            >CV</a
-          >
         </nav>
+
+        <div class="header-tools">
+          <a class="status-pill" id="statusPill" href="qa-suite.html" hidden>
+            <span class="dot live" aria-hidden="true"></span>
+            <span class="pill-text"></span>
+          </a>
+          <button class="icon-btn theme-toggle" type="button" id="themeToggle" aria-label="Switch colour theme">
+            <svg class="icon moon" aria-hidden="true"><use href="#i-moon" /></svg>
+            <svg class="icon sun" aria-hidden="true"><use href="#i-sun" /></svg>
+          </button>
+          <a class="btn btn-quiet cv-btn" href="assets/cv/Artem-Cherbaev-CV.pdf" download="Artem-Cherbaev-CV.pdf">
+            <svg class="icon" aria-hidden="true"><use href="#i-download" /></svg>
+            CV<span class="cv-long sr-only"> (PDF, 2 pages)</span>
+          </a>
+          <button
+            class="icon-btn menu-btn"
+            type="button"
+            id="menuBtn"
+            aria-label="Open the menu"
+            aria-expanded="false"
+            aria-controls="siteNav"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+          </button>
+        </div>
       </div>
     </header>
 
-    <main id="top">
+    <main id="main">
       <!-- ============ HERO ============ -->
-      <section class="hero">
+      <section class="hero" aria-labelledby="heroTitle">
         <div class="wrap hero-grid">
-          <div class="hero-text">
-            <h1>Artem Cherbaev</h1>
-            <p class="role">
-              QA Engineer, manual and automation. Web, mobile and microservice
-              backends.
+          <div class="hero-copy">
+            <p class="eyebrow">QA Engineer &middot; manual &amp; automation</p>
+            <h1 id="heroTitle">Artem Cherbaev</h1>
+            <p class="hero-claim">
+              The first QA engineer at a US broker-dealer. I built the function, not just the tests.
             </p>
-            <p class="lead">
-              I spent five years as the first and only QA engineer at a US
-              broker-dealer, which meant building the function rather than
-              joining one: the test strategy, the defect workflow, and every
-              automated suite from the first Selenium test to 1,450 UI, API and
-              end to end tests gating releases in CI. Money moves through the
-              products I tested, so a missed defect is not a cosmetic problem. I
-              use Claude Code and MCP heavily for the maintenance work, and keep
-              the suites themselves deterministic, because a pipeline that needs
-              a model at runtime is one nobody can reproduce.
+            <p class="hero-text">
+              Five years owning quality end to end for web, iOS, Android and microservice backends:
+              the test strategy, the defect workflow, and 1,450+ automated UI, API and end-to-end tests
+              gating releases in CI. I use Claude Code and MCP heavily for the maintenance work, and keep
+              the suites themselves deterministic &mdash; a pipeline that needs a model at runtime is one
+              nobody can reproduce.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#projects"
-                >See my work<svg
-                  viewBox="0 0 24 24"
-                  width="16"
-                  height="16"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.1"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M5 12h13" />
-                  <path d="m12.5 5.5 6.5 6.5-6.5 6.5" /></svg
-              ></a>
-              <a class="btn btn-ghost" href="#contact">Get in touch</a>
+              <a class="btn btn-primary" href="qa-suite.html">
+                <svg class="icon" aria-hidden="true"><use href="#i-play" /></svg>
+                Watch my suite run
+              </a>
+              <a class="btn btn-secondary" href="#work">
+                See my work
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+              </a>
             </div>
+            <ul class="hero-meta">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-pin" /></svg>Curitiba, Brazil &middot; UTC&minus;3</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-globe" /></svg>Remote, international teams</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-chat" /></svg>English C1 &middot; Russian native</li>
+            </ul>
           </div>
-          <div class="hero-side">
-            <div class="avatar">
-              <img
-                src="assets/img/portrait.svg"
-                width="258"
-                height="258"
-                alt="Portrait of Artem Cherbaev"
-              />
+
+          <div class="hero-visual">
+            <div class="hero-stage">
+              <figure class="capture">
+                <span class="corner tl" aria-hidden="true"></span>
+                <span class="corner tr" aria-hidden="true"></span>
+                <span class="corner bl" aria-hidden="true"></span>
+                <span class="corner br" aria-hidden="true"></span>
+                <span class="capture-label" aria-hidden="true">VR-00 portrait <span class="ok">&check; 0 px diff</span></span>
+                <div class="capture-img">
+                  <img
+                    src="assets/img/portrait.jpg"
+                    width="400"
+                    height="400"
+                    alt="Artem Cherbaev, smiling, in front of a green hedge"
+                    fetchpriority="high"
+                  />
+                </div>
+              </figure>
+              <a class="run-card" id="heroRun" href="qa-suite.html" hidden>
+                <span class="run-card-head">
+                  <span class="dot" data-run-dot aria-hidden="true"></span>
+                  Last CI run
+                  <span class="when" data-run-when></span>
+                </span>
+                <span class="run-card-total">
+                  <strong data-run-passed></strong>
+                  <span data-run-summary></span>
+                </span>
+                <span class="spark" data-run-spark aria-hidden="true"></span>
+                <span class="run-card-foot" data-run-foot></span>
+              </a>
             </div>
-            <p class="hero-meta">
-              Curitiba, Brazil. UTC&minus;3<br />
-              Remote, international product teams<br />
-              English C1, Russian native
-            </p>
           </div>
         </div>
       </section>
 
-      <!-- ============ ABOUT ============ -->
-      <section class="about" id="about">
-        <div class="wrap">
-          <div class="about-grid">
-            <div class="about-body reveal">
-              <p class="eyebrow">About me</p>
-              <h2>Why I test the way I do</h2>
-              <p>
-                I joined Lime Trading as its first QA engineer, on a team that
-                had never had one. There was no process to inherit and no suite
-                to maintain, so the first question was not what to test but what
-                would actually go wrong, who would pay for it, and how late
-                anyone would find out.
-              </p>
-              <p>
-                That is still how I decide. A bug report is cheap; the failure
-                behind it usually is not, and the two are rarely the same size.
-                In a trading product the expensive failures are the quiet ones —
-                a price that renders correctly and settles wrong, a mobile build
-                that breaks on one OS version, a message that never reaches the
-                service downstream. Coverage follows from that rather than from
-                the requirement list, which also means being willing to decide
-                what not to test.
-              </p>
-              <p>
-                The other half of the job is the maintenance. Most automation
-                effort goes on keeping a framework alive, which is where agentic
-                tooling actually pays, and where I use Claude Code, MCP and
-                agents I write myself on real work rather than as an experiment.
-                The suite in Projects was built that way and it is public, so
-                this is checkable rather than something you have to take on
-                trust.
-              </p>
-              <div class="journey">
-                <h3>My professional journey</h3>
-                <p>
-                  From manual testing into automation architecture, and now into
-                  agentic tooling. The detail, year by year, is
-                  <a href="#experience">right below</a>, and the CV has the
-                  rest.
-                </p>
-              </div>
-            </div>
+      <!-- ============ PROOF ============ -->
+      <section class="proof" aria-label="Results at a glance">
+        <div class="wrap proof-grid">
+          <div class="proof-item">
+            <div class="proof-value">1,450+</div>
+            <div class="proof-label">automated UI, API and end-to-end tests, built and maintained</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-value">&minus;60%</div>
+            <div class="proof-label">production defects, once the automation gated releases</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-value">2d<span class="arrow">&rarr;</span>1d</div>
+            <div class="proof-label">full regression cycle, after the move to Playwright</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-value">48+</div>
+            <div class="proof-label">releases taken through regression, UAT and sign-off</div>
+          </div>
+        </div>
+      </section>
 
-            <div class="facts reveal">
-              <div class="fact">
-                <div class="n">5+</div>
-                <div class="k">years owning quality end to end</div>
-              </div>
-              <div class="fact">
-                <div class="n">1,450+</div>
-                <div class="k">
-                  automated UI, API and E2E tests built and maintained
-                </div>
-              </div>
-              <div class="fact">
-                <div class="n">48+</div>
-                <div class="k">
-                  releases taken through regression, UAT and sign-off
-                </div>
-              </div>
-              <div class="fact">
-                <div class="n">600+</div>
-                <div class="k">defects documented, under 5% reopened</div>
-              </div>
-            </div>
+      <!-- ============ WORK ============ -->
+      <section class="section" id="work" aria-labelledby="workTitle">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow"><span class="idx">01</span> Work in public</p>
+            <h2 id="workTitle">My own work, running in the open</h2>
+            <p class="lede">
+              Work done for an employer belongs to them. These are mine: public repositories, pipelines you
+              can watch, and results nobody typed in by hand.
+            </p>
           </div>
 
-          <!-- principles -->
-          <div class="subblock reveal">
-            <h3 class="subhead">How I approach QA</h3>
-            <p class="subnote">
-              Four working principles, and what each one looked like in
-              practice.
-            </p>
-            <div class="principles">
-              <div class="principle reveal">
-                <span class="num">01</span>
-                <h3>A suite nobody trusts is worse than no suite</h3>
-                <p>
-                  A flaky test is a defect in the test code, not background
-                  noise to be retried away. Rebuilding the suite in Playwright,
-                  I replaced every sleep with explicit state polling and moved
-                  test data setup onto the API, because the suite had to be
-                  reliable enough to gate a release before anyone would let it.
-                </p>
-              </div>
-              <div class="principle reveal">
-                <span class="num">02</span>
-                <h3>Testing belongs inside the pipeline, not after it</h3>
-                <p>
-                  A quality gate that blocks a failing build is worth more than
-                  a report nobody opens. Smoke ran on every pull request as a
-                  merge gate, full regression nightly and pre-release, and
-                  per-service suites on deploy to staging — all in Docker
-                  against Kubernetes test environments.
-                </p>
-              </div>
-              <div class="principle reveal">
-                <span class="num">03</span>
-                <h3>Automate the maintenance, not only the tests</h3>
-                <p>
-                  Most automation effort is spent keeping a framework alive
-                  rather than writing new coverage. Bringing Claude Code, MCP
-                  and Cursor into test generation, log analysis and defect
-                  triage took each regression cycle from about four hours of
-                  that work to an hour and a half.
-                </p>
-              </div>
-              <div class="principle reveal">
-                <span class="num">04</span>
-                <h3>Own the strategy, not just the tickets</h3>
-                <p>
-                  Deciding what to test, in which layer, and what to stop
-                  testing is the part that needs judgement rather than
-                  throughput. I reviewed requirements and acceptance criteria
-                  before development started and resolved ambiguity at the
-                  design stage, which is far cheaper than finding it in QA.
-                </p>
+          <article class="card feature reveal" aria-labelledby="suiteTitle">
+            <div class="feature-body">
+              <p class="card-kind">Test automation &middot; featured</p>
+              <h3 id="suiteTitle">Agentic Playwright Suite</h3>
+              <p>
+                End-to-end, visual regression and REST API tests against a public demo storefront, in
+                Playwright and TypeScript. Claude Code agents write and repair the tests over Playwright
+                MCP; the pipeline itself runs no model, so every result can be reproduced.
+              </p>
+              <ul class="checklist">
+                <li>
+                  <svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>
+                  <span>Four lanes on every push: Chromium, WebKit, visual regression and the REST API</span>
+                </li>
+                <li>
+                  <svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>
+                  <span>Every job runs in one container image, versioned from the lockfile</span>
+                </li>
+                <li>
+                  <svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>
+                  <span>Allure reports with trend history, a suite health page and replayable traces</span>
+                </li>
+                <li>
+                  <svg class="icon" aria-hidden="true"><use href="#i-check" /></svg>
+                  <span>Nine defects raised against the target, each with its evidence</span>
+                </li>
+              </ul>
+              <ul class="chips" aria-label="Built with">
+                <li class="chip">Playwright</li>
+                <li class="chip">TypeScript</li>
+                <li class="chip">Docker</li>
+                <li class="chip">GitHub Actions</li>
+                <li class="chip">Allure</li>
+                <li class="chip">Claude Code</li>
+                <li class="chip">Playwright MCP</li>
+              </ul>
+              <div class="feature-actions">
+                <a class="btn btn-primary" href="qa-suite.html">
+                  <svg class="icon" aria-hidden="true"><use href="#i-play" /></svg>
+                  Watch the last run
+                </a>
+                <a class="btn btn-secondary" href="https://github.com/ArtemCherbaev/agentic-playwright-suite">
+                  <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
+                  Repository
+                </a>
               </div>
             </div>
+
+            <div class="feature-live" id="suiteLive" aria-label="The suite's last CI run">
+              <div class="live-head">
+                <span class="dot" data-live-dot aria-hidden="true"></span>
+                <span class="title">Last CI run</span>
+                <span class="when" data-live-when></span>
+              </div>
+              <div class="lanes-mini" data-live-lanes>
+                <p class="live-empty">
+                  Every push to main runs four lanes and publishes the results. They load here from the
+                  suite's own feed.
+                </p>
+              </div>
+              <div class="legend" aria-hidden="true">
+                <span><i class="cell passed"></i>passed</span>
+                <span><i class="cell failed"></i>failed</span>
+                <span><i class="cell parked"></i>parked on a known defect</span>
+              </div>
+              <dl class="live-stats" data-live-stats></dl>
+              <div class="live-slow" data-live-slow hidden></div>
+              <div class="live-foot">
+                <span data-live-run></span>
+                <a href="https://artemcherbaev.github.io/agentic-playwright-suite/">Dashboard</a>
+                <a href="https://artemcherbaev.github.io/agentic-playwright-suite/metrics/">Suite health</a>
+                <a href="https://artemcherbaev.github.io/agentic-playwright-suite/playwright-report/">Traces</a>
+              </div>
+            </div>
+          </article>
+
+          <div class="work-more">
+            <article class="card work-card reveal" aria-labelledby="labTitle">
+              <p class="card-kind">QA workflow</p>
+              <h3 id="labTitle">Quality Lab</h3>
+              <p>
+                A small store built to be tested: Playwright UI and API tests, accessibility checks with
+                axe-core, evidence-based failure triage and reviewed repair proposals. Switchable,
+                deliberate defects show what the suite actually catches &mdash; and a written-up cart race
+                shows how a real one was found.
+              </p>
+              <ul class="chips" aria-label="Built with">
+                <li class="chip">Playwright</li>
+                <li class="chip">TypeScript</li>
+                <li class="chip">axe-core</li>
+                <li class="chip">API testing</li>
+              </ul>
+              <div class="actions">
+                <a class="link-arrow" href="https://github.com/ArtemCherbaev/quality-lab">
+                  Repository <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                </a>
+                <a class="link-arrow" href="https://github.com/ArtemCherbaev/quality-lab/blob/main/docs/CASE-STUDY.md">
+                  The case study <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="card work-card reveal" aria-labelledby="siteTitle">
+              <p class="card-kind">Portfolio</p>
+              <h3 id="siteTitle">This site</h3>
+              <p>
+                Hand-written HTML, CSS and JavaScript: no framework, no build step, no trackers. Its own
+                Playwright suite &mdash; pages, links, accessibility with axe, and the runner against
+                recorded feeds &mdash; has to pass before anything is deployed.
+              </p>
+              <ul class="chips" aria-label="Built with">
+                <li class="chip">HTML &amp; CSS</li>
+                <li class="chip">JavaScript</li>
+                <li class="chip">Playwright</li>
+                <li class="chip">axe-core</li>
+              </ul>
+              <div class="actions">
+                <a class="link-arrow" href="https://github.com/ArtemCherbaev/ArtemCherbaev.github.io">
+                  Repository <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                </a>
+                <a class="link-arrow" href="cv.html">
+                  Read the CV <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+                </a>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
       <!-- ============ EXPERIENCE ============ -->
-      <section class="experience" id="experience">
+      <section class="section alt" id="experience" aria-labelledby="expTitle">
         <div class="wrap">
-          <div class="reveal">
-            <p class="eyebrow">Experience</p>
-            <h2>Five years, one team, built from zero</h2>
-            <p class="subnote">
-              The short version. The CV has the full detail.
+          <div class="section-head reveal">
+            <p class="eyebrow"><span class="idx">02</span> Experience</p>
+            <h2 id="expTitle">Five years, one team, built from zero</h2>
+            <p class="lede">
+              One role, start to finish: from the first test plan to a tiered pipeline of 1,450+
+              automated checks.
             </p>
           </div>
 
-          <div class="timeline" id="roleList">
-            <article class="tl-item reveal">
-              <div class="tl-when">03/2021 to 07/2026</div>
-              <div class="tl-body">
-                <h3>QA Engineer</h3>
-                <p class="where">
-                  Lime Trading, an award-winning broker-dealer operating in the
-                  USA
-                </p>
-                <p>
-                  The first and only QA engineer on the team. Defined the test
-                  strategy, entry and exit criteria, defect workflow and test
-                  documentation in Jira, TestRail, Qase and Confluence, then
-                  stood up the automation infrastructure for web, iOS and
-                  Android, and the backend microservices behind them.
-                </p>
-                <p>
-                  Built the first UI and end to end suites in Selenium and
-                  Python, then led the migration to Playwright and TypeScript as
-                  the front end matured — re-architecting around the Page Object
-                  Model, API-driven test data, role-based session fixtures and
-                  parallel execution.
-                </p>
-                <p class="tl-result">
-                  Production defects down 60%. Full regression cycle cut from
-                  two days to one.
-                </p>
-
-                <div class="tl-extra" hidden>
-                  <p>
-                    Established mobile testing and automation for iOS and
-                    Android with Appium and the XCUITest driver, on real devices
-                    and BrowserStack across a device and OS version matrix,
-                    including WebDriverAgent signing, provisioning profiles and
-                    native selector stability.
-                  </p>
-                  <p>
-                    Built the API automation layer with Pytest and Requests
-                    against REST and gRPC services, and validated backend
-                    correctness end to end with advanced SQL against PostgreSQL
-                    and MySQL plus Kafka and RabbitMQ message flows between
-                    services.
-                  </p>
-                  <p>
-                    Designed the manual regression suite and release checklists
-                    with formal test-design techniques — equivalence
-                    partitioning, boundary value analysis, decision tables,
-                    state transition and pairwise testing — prioritised by risk,
-                    and complemented them with session-based exploratory testing
-                    to find what scripted cases miss.
-                  </p>
-                  <p>
-                    Monitored production quality with Kibana, Grafana, Sentry
-                    and Chrome DevTools, reproducing customer-reported issues
-                    and tracing defects to the responsible service rather than
-                    the symptom. Ran load and stress testing with JMeter against
-                    the trading and reporting endpoints, and OWASP ZAP scans
-                    plus manual authentication and authorisation checks before
-                    major releases.
-                  </p>
-                  <p>
-                    Mentored and onboarded junior QA engineers, writing the
-                    process documentation, framework guides and playbooks the
-                    team still runs on.
-                  </p>
-                  <p class="tl-result">
-                    Test authoring and failure triage per regression cycle down
-                    from about four hours to an hour and a half. Junior
-                    onboarding ramp cut from five weeks to two.
-                  </p>
+          <div class="role">
+            <div class="role-meta reveal">
+              <h3>QA Engineer</h3>
+              <p class="company">Lime Trading</p>
+              <p class="company-note">An award-winning broker-dealer operating in the USA</p>
+              <span class="when">Mar 2021 &ndash; Jul 2026</span>
+              <p>
+                The first and only QA engineer on the team, for web, iOS and Android apps and the
+                microservices behind them. Money moves through these products, so a missed defect is never
+                cosmetic.
+              </p>
+              <div class="results">
+                <div class="result">
+                  <strong>&minus;60%</strong>
+                  <span>production defects</span>
+                </div>
+                <div class="result">
+                  <strong>2d &rarr; 1d</strong>
+                  <span>full regression cycle</span>
+                </div>
+                <div class="result">
+                  <strong>4h &rarr; 1.5h</strong>
+                  <span>authoring and triage per cycle, AI-assisted</span>
+                </div>
+                <div class="result">
+                  <strong>5w &rarr; 2w</strong>
+                  <span>junior QA onboarding</span>
                 </div>
               </div>
-            </article>
+            </div>
+
+            <div class="reveal">
+              <ol class="steps">
+                <li class="step">
+                  <span class="step-mark" aria-hidden="true"><svg class="icon"><use href="#i-check" /></svg></span>
+                  <div>
+                    <span class="step-label">Foundation</span>
+                    <h4>Built the QA function from scratch</h4>
+                    <p>
+                      Test strategy, test plan, entry and exit criteria, the defect workflow and the test
+                      documentation in Jira, TestRail, Qase and Confluence. Requirements and acceptance
+                      criteria reviewed before development started, with a traceability matrix from
+                      requirement to test to defect.
+                    </p>
+                  </div>
+                </li>
+                <li class="step">
+                  <span class="step-mark" aria-hidden="true"><svg class="icon"><use href="#i-check" /></svg></span>
+                  <div>
+                    <span class="step-label">Automation</span>
+                    <h4>The first suites, in Selenium and Python</h4>
+                    <p>
+                      UI and end-to-end suites from the ground up, then an API layer with Pytest and Requests
+                      against REST and gRPC services, backed by SQL checks in PostgreSQL and MySQL and Kafka
+                      and RabbitMQ message validation between services.
+                    </p>
+                  </div>
+                </li>
+                <li class="step">
+                  <span class="step-mark" aria-hidden="true"><svg class="icon"><use href="#i-check" /></svg></span>
+                  <div>
+                    <span class="step-label">Mobile</span>
+                    <h4>iOS and Android with Appium</h4>
+                    <p>
+                      Critical flows on real devices and BrowserStack across a device and OS version matrix,
+                      with the XCUITest driver &mdash; including WebDriverAgent signing, provisioning profiles
+                      and native selector stability.
+                    </p>
+                  </div>
+                </li>
+                <li class="step">
+                  <span class="step-mark" aria-hidden="true"><svg class="icon"><use href="#i-check" /></svg></span>
+                  <div>
+                    <span class="step-label">Migration</span>
+                    <h4>Led the move to Playwright and TypeScript</h4>
+                    <p>
+                      Re-architected around page objects, API-driven test data, role-based session fixtures
+                      and parallel execution, and replaced every sleep with explicit state polling &mdash; so
+                      the suite was reliable enough to gate a release.
+                    </p>
+                  </div>
+                </li>
+                <li class="step">
+                  <span class="step-mark" aria-hidden="true"><svg class="icon"><use href="#i-check" /></svg></span>
+                  <div>
+                    <span class="step-label">Pipeline</span>
+                    <h4>Tiered quality gates in CI/CD</h4>
+                    <p>
+                      Smoke on every pull request as a merge gate, full regression nightly and before each
+                      release, per-service suites on deploy to staging &mdash; in Docker against Kubernetes
+                      test environments, on TeamCity, Jenkins and GitHub Actions, reported in Allure.
+                    </p>
+                  </div>
+                </li>
+                <li class="step">
+                  <span class="step-mark" aria-hidden="true"><svg class="icon"><use href="#i-check" /></svg></span>
+                  <div>
+                    <span class="step-label">AI-assisted QA</span>
+                    <h4>Brought Claude Code, MCP and agents into the daily work</h4>
+                    <p>
+                      Test case generation, log analysis and defect triage with Claude Code, MCP, Cursor and
+                      AI agents &mdash; the maintenance work, where agentic tooling actually pays.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+            </div>
           </div>
 
-          <button
-            class="more"
-            type="button"
-            id="moreRoles"
-            aria-expanded="false"
-            aria-controls="roleList"
-          >
-            Show the full detail
-            <svg
-              class="chev"
-              viewBox="0 0 24 24"
-              width="15"
-              height="15"
-              aria-hidden="true"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m6 9.5 6 6 6-6" />
-            </svg>
-          </button>
+          <details class="more reveal">
+            <summary>
+              More from the role
+              <svg class="icon" aria-hidden="true"><use href="#i-chevron" /></svg>
+            </summary>
+            <div class="more-body">
+              <div>
+                <h4>Release ownership</h4>
+                <p>
+                  48+ releases through regression, smoke and UAT, defects prioritised by severity and impact,
+                  and 600+ defects documented in Jira with a reopen rate under 5%.
+                </p>
+              </div>
+              <div>
+                <h4>Test design</h4>
+                <p>
+                  The manual regression suite and release checklists built with equivalence partitioning,
+                  boundary values, decision tables, state transitions and pairwise testing, prioritised by
+                  risk and complemented by session-based exploratory testing.
+                </p>
+              </div>
+              <div>
+                <h4>Production quality</h4>
+                <p>
+                  Kibana, Grafana, Sentry and Chrome DevTools to triage errors and crash reports, reproduce
+                  what customers reported, and trace a defect to the service responsible rather than the
+                  symptom.
+                </p>
+              </div>
+              <div>
+                <h4>Performance and security</h4>
+                <p>
+                  Load and stress testing with JMeter against the trading and reporting endpoints, and OWASP
+                  ZAP scans plus manual authentication and authorisation checks before major releases.
+                </p>
+              </div>
+              <div>
+                <h4>Mentoring</h4>
+                <p>
+                  Onboarded junior QA engineers and wrote the process documentation, framework guides and
+                  playbooks the team still runs on.
+                </p>
+              </div>
+              <div>
+                <h4>Traces over guesswork</h4>
+                <p>
+                  Playwright traces, video and screenshots on every failure cut triage time sharply, and fed a
+                  flake history kept in Allure.
+                </p>
+              </div>
+            </div>
+          </details>
 
-          <!-- skills -->
-          <div class="subblock reveal">
-            <h3 class="subhead">Skills and tools</h3>
-            <p class="subnote">
-              The most current first. The rest is one click away.
-            </p>
+          <p class="edu reveal">
+            <strong>Moscow State University</strong> Bachelor of Computer Science
+            <span class="mono">2016 &ndash; 2020</span>
+          </p>
+        </div>
+      </section>
 
-            <div class="skills-now reveal">
-              <span class="tag">Right now</span>
+      <!-- ============ APPROACH ============ -->
+      <section class="section" id="approach" aria-labelledby="approachTitle">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow"><span class="idx">03</span> Approach</p>
+            <h2 id="approachTitle">How I approach QA</h2>
+            <p class="lede">Four working principles, and what each one looked like in practice.</p>
+          </div>
+          <div class="principles">
+            <article class="card principle reveal">
+              <span class="num">01</span>
+              <h3>A suite nobody trusts is worse than no suite</h3>
               <p>
-                Playwright and TypeScript test automation, built and maintained
-                with Claude Code, MCP, and agents and skills I write myself.
+                A flaky test is a defect in the test code, not background noise to be retried away.
+                Rebuilding the suite in Playwright, I replaced every sleep with explicit state polling and
+                moved test data setup onto the API, because the suite had to be reliable enough to gate a
+                release before anyone would let it.
+              </p>
+            </article>
+            <article class="card principle reveal">
+              <span class="num">02</span>
+              <h3>Testing belongs inside the pipeline, not after it</h3>
+              <p>
+                A quality gate that blocks a failing build is worth more than a report nobody opens. Smoke ran
+                on every pull request as a merge gate, full regression nightly and pre-release, and
+                per-service suites on deploy to staging.
+              </p>
+            </article>
+            <article class="card principle reveal">
+              <span class="num">03</span>
+              <h3>Automate the maintenance, not only the tests</h3>
+              <p>
+                Most automation effort goes on keeping a framework alive rather than writing new coverage.
+                Bringing Claude Code, MCP and Cursor into test generation, log analysis and defect triage took
+                each regression cycle from about four hours of that work to an hour and a half.
+              </p>
+            </article>
+            <article class="card principle reveal">
+              <span class="num">04</span>
+              <h3>Own the strategy, not just the tickets</h3>
+              <p>
+                Deciding what to test, in which layer, and what to stop testing is the part that needs
+                judgement rather than throughput. I review requirements and acceptance criteria before
+                development starts, because ambiguity is far cheaper to resolve at design than in QA.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SKILLS ============ -->
+      <section class="section alt" id="skills" aria-labelledby="skillsTitle">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow"><span class="idx">04</span> Skills</p>
+            <h2 id="skillsTitle">Tools I reach for</h2>
+            <p class="lede">
+              Grouped the way the work is. The dark row is what I use most; everything below it I have shipped
+              with.
+            </p>
+          </div>
+
+          <div class="daily reveal">
+            <span class="daily-label">Most used</span>
+            <ul class="chips">
+              <li class="chip">Playwright</li>
+              <li class="chip">TypeScript</li>
+              <li class="chip">Python</li>
+              <li class="chip">Pytest</li>
+              <li class="chip">REST &amp; gRPC</li>
+              <li class="chip">SQL</li>
+              <li class="chip">GitHub Actions</li>
+              <li class="chip">Docker</li>
+              <li class="chip">Allure</li>
+              <li class="chip">Claude Code</li>
+              <li class="chip">MCP</li>
+            </ul>
+          </div>
+
+          <div class="skill-grid">
+            <div class="card skill-group reveal">
+              <h3>Web automation</h3>
+              <ul class="chips">
+                <li class="chip">Playwright (TS &amp; Python)</li>
+                <li class="chip">Selenium WebDriver</li>
+                <li class="chip">Cypress</li>
+                <li class="chip">Page Object Model</li>
+                <li class="chip">Fixtures &amp; traces</li>
+                <li class="chip">Parallel execution</li>
+                <li class="chip">Flaky-test triage</li>
+                <li class="chip">Framework design</li>
+              </ul>
+            </div>
+            <div class="card skill-group reveal">
+              <h3>API &amp; backend</h3>
+              <ul class="chips">
+                <li class="chip">Pytest &amp; Requests</li>
+                <li class="chip">Postman</li>
+                <li class="chip">Swagger / OpenAPI</li>
+                <li class="chip">gRPC</li>
+                <li class="chip">Kafka</li>
+                <li class="chip">RabbitMQ</li>
+                <li class="chip">PostgreSQL</li>
+                <li class="chip">MySQL</li>
+                <li class="chip">MongoDB</li>
+                <li class="chip">Test data via API</li>
+              </ul>
+            </div>
+            <div class="card skill-group reveal">
+              <h3>Mobile</h3>
+              <ul class="chips">
+                <li class="chip">Appium</li>
+                <li class="chip">XCUITest</li>
+                <li class="chip">BrowserStack</li>
+                <li class="chip">Real devices &amp; simulators</li>
+                <li class="chip">Device / OS matrix</li>
+                <li class="chip">Android Studio</li>
+                <li class="chip">Xcode</li>
+                <li class="chip">Charles Proxy</li>
+              </ul>
+            </div>
+            <div class="card skill-group reveal">
+              <h3>CI/CD &amp; infrastructure</h3>
+              <ul class="chips">
+                <li class="chip">GitHub Actions</li>
+                <li class="chip">TeamCity</li>
+                <li class="chip">Jenkins</li>
+                <li class="chip">Docker</li>
+                <li class="chip">Kubernetes</li>
+                <li class="chip">Linux &amp; Bash</li>
+                <li class="chip">Git</li>
+                <li class="chip">Pipeline design</li>
+              </ul>
+            </div>
+            <div class="card skill-group reveal">
+              <h3>AI-assisted QA</h3>
+              <ul class="chips">
+                <li class="chip">Claude Code</li>
+                <li class="chip">MCP</li>
+                <li class="chip">Playwright MCP</li>
+                <li class="chip">Cursor</li>
+                <li class="chip">AI agents &amp; skills</li>
+                <li class="chip">Test generation</li>
+                <li class="chip">Log analysis &amp; triage</li>
+                <li class="chip">Testing AI features</li>
+              </ul>
+            </div>
+            <div class="card skill-group reveal">
+              <h3>Observability &amp; debugging</h3>
+              <ul class="chips">
+                <li class="chip">Kibana (ELK)</li>
+                <li class="chip">Grafana</li>
+                <li class="chip">Sentry</li>
+                <li class="chip">Chrome DevTools</li>
+                <li class="chip">Log analysis</li>
+                <li class="chip">Crash &amp; stack-trace triage</li>
+              </ul>
+            </div>
+            <div class="card skill-group reveal">
+              <h3>Performance &amp; security</h3>
+              <ul class="chips">
+                <li class="chip">JMeter</li>
+                <li class="chip">Load &amp; stress testing</li>
+                <li class="chip">Response-time analysis</li>
+                <li class="chip">OWASP ZAP</li>
+                <li class="chip">Auth &amp; authorisation testing</li>
+              </ul>
+            </div>
+            <div class="card skill-group reveal">
+              <h3>Test design</h3>
+              <ul class="chips">
+                <li class="chip">Risk-based testing</li>
+                <li class="chip">Equivalence partitioning</li>
+                <li class="chip">Boundary values</li>
+                <li class="chip">Decision tables</li>
+                <li class="chip">State transitions</li>
+                <li class="chip">Pairwise</li>
+                <li class="chip">Exploratory sessions</li>
+              </ul>
+            </div>
+            <div class="card skill-group reveal">
+              <h3>Process &amp; management</h3>
+              <ul class="chips">
+                <li class="chip">Jira</li>
+                <li class="chip">TestRail</li>
+                <li class="chip">Qase</li>
+                <li class="chip">Zephyr</li>
+                <li class="chip">Allure TestOps</li>
+                <li class="chip">Confluence</li>
+                <li class="chip">Scrum &amp; Kanban</li>
+                <li class="chip">Release management</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ABOUT ============ -->
+      <section class="section" id="about" aria-labelledby="aboutTitle">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow"><span class="idx">05</span> About</p>
+            <h2 id="aboutTitle">Why I test the way I do</h2>
+          </div>
+          <div class="about-grid">
+            <div class="about-body reveal">
+              <p>
+                I joined Lime Trading as its first QA engineer, on a team that had never had one. There was no
+                process to inherit and no suite to maintain, so the first question was not what to test but
+                what would actually go wrong, who would pay for it, and how late anyone would find out.
+              </p>
+              <p>
+                That is still how I decide. A bug report is cheap; the failure behind it usually is not, and the
+                two are rarely the same size. In a trading product the expensive failures are the quiet ones
+                &mdash; a price that renders correctly and settles wrong, a mobile build that breaks on one OS
+                version, a message that never reaches the service downstream. Coverage follows from that rather
+                than from the requirement list, which also means being willing to decide what not to test.
+              </p>
+              <p>
+                The other half of the job is maintenance. Most automation effort goes on keeping a framework
+                alive, which is where agentic tooling actually pays, and where I use Claude Code, MCP and agents
+                I write myself on real work rather than as an experiment. The suite above was built that way,
+                and it is public, so none of this has to be taken on trust.
               </p>
             </div>
-
-            <div class="skills-timeline reveal">
-              <div class="t-axis">
-                <span>2021</span><span>2022</span><span>2023</span
-                ><span>2024</span><span>2025</span><span>now</span>
+            <dl class="card facts reveal">
+              <div>
+                <dt>Looking for</dt>
+                <dd>QA Automation Engineer and SDET roles</dd>
               </div>
-              <div class="t-rows" id="skillRows">
-                <div class="t-row">
-                  <div class="t-label">
-                    Manual, exploratory and risk-based testing<small
-                      >since Mar 2021, Lime Trading</small
-                    >
-                  </div>
-                  <div class="t-track">
-                    <span class="t-bar from-2021"></span
-                    ><span class="t-dur">5y</span>
-                  </div>
-                </div>
-                <div class="t-row">
-                  <div class="t-label">
-                    Python and Pytest, Selenium WebDriver<small
-                      >since Mar 2021, Selenium later migrated to
-                      Playwright</small
-                    >
-                  </div>
-                  <div class="t-track">
-                    <span class="t-bar from-2021"></span
-                    ><span class="t-dur">5y</span>
-                  </div>
-                </div>
-                <div class="t-row">
-                  <div class="t-label">
-                    API automation, REST and gRPC, Kafka and SQL<small
-                      >since Mar 2021, Lime Trading</small
-                    >
-                  </div>
-                  <div class="t-track">
-                    <span class="t-bar from-2021"></span
-                    ><span class="t-dur">5y</span>
-                  </div>
-                </div>
-                <div class="t-row">
-                  <div class="t-label">
-                    Playwright, TypeScript and Python<small class="todo"
-                      >since MM/YYYY, led the migration</small
-                    >
-                  </div>
-                  <div class="t-track">
-                    <span class="t-bar from-2023"></span
-                    ><span class="t-dur todo">~Ny</span>
-                  </div>
-                </div>
-                <div class="t-row">
-                  <div class="t-label">
-                    AI-assisted and agentic QA, Claude Code and MCP<small
-                      class="todo"
-                      >since MM/YYYY</small
-                    >
-                  </div>
-                  <div class="t-track">
-                    <span class="t-bar from-2025"></span
-                    ><span class="t-dur todo">~Ny</span>
-                  </div>
-                </div>
-                <div class="t-row t-extra" hidden>
-                  <div class="t-label">
-                    Mobile automation, Appium and XCUITest<small
-                      >since Mar 2021, iOS and Android</small
-                    >
-                  </div>
-                  <div class="t-track">
-                    <span class="t-bar from-2021"></span
-                    ><span class="t-dur">5y</span>
-                  </div>
-                </div>
-                <div class="t-row t-extra" hidden>
-                  <div class="t-label">
-                    CI/CD, TeamCity, Jenkins, GitHub Actions, Docker<small
-                      >since Mar 2021, Lime Trading</small
-                    >
-                  </div>
-                  <div class="t-track">
-                    <span class="t-bar from-2021"></span
-                    ><span class="t-dur">5y</span>
-                  </div>
-                </div>
-                <div class="t-row t-extra" hidden>
-                  <div class="t-label">
-                    Observability, Kibana, Grafana, Sentry<small
-                      >since Mar 2021, production triage</small
-                    >
-                  </div>
-                  <div class="t-track">
-                    <span class="t-bar from-2021"></span
-                    ><span class="t-dur">5y</span>
-                  </div>
-                </div>
-                <div class="t-row t-extra" hidden>
-                  <div class="t-label">
-                    Performance and security, JMeter and OWASP ZAP<small
-                      >since Mar 2021, pre-release</small
-                    >
-                  </div>
-                  <div class="t-track">
-                    <span class="t-bar from-2021"></span
-                    ><span class="t-dur">5y</span>
-                  </div>
-                </div>
+              <div>
+                <dt>Based in</dt>
+                <dd>Curitiba, Brazil &middot; UTC&minus;3</dd>
               </div>
-            </div>
-
-            <button
-              class="more"
-              type="button"
-              id="moreSkills"
-              aria-expanded="false"
-              aria-controls="skillRows"
-            >
-              Show the rest of my skills
-              <svg
-                class="chev"
-                viewBox="0 0 24 24"
-                width="15"
-                height="15"
-                aria-hidden="true"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="m6 9.5 6 6 6-6" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ IMPACT ============ -->
-      <section class="impact" id="impact">
-        <div class="wrap">
-          <div class="reveal">
-            <p class="eyebrow">Impact</p>
-            <h2>What that adds up to</h2>
-            <p class="subnote">
-              Measured before and after the work, on the projects themselves.
-            </p>
-          </div>
-          <div class="impact-grid">
-            <div class="metric reveal">
-              <div class="v">60%</div>
-              <div class="l">
-                fewer production defects, against 1,450+ automated tests
+              <div>
+                <dt>Works</dt>
+                <dd>Remote, with international product teams</dd>
               </div>
-            </div>
-            <div class="metric reveal">
-              <div class="v">2d &rarr; 1d</div>
-              <div class="l">
-                full regression cycle, after the Playwright migration
+              <div>
+                <dt>Languages</dt>
+                <dd>English C1, Russian native</dd>
               </div>
-            </div>
-            <div class="metric reveal">
-              <div class="v">4h &rarr; 1.5h</div>
-              <div class="l">
-                test authoring and failure triage per cycle, with AI-assisted
-                tooling
+              <div>
+                <dt>Education</dt>
+                <dd>BSc Computer Science, Moscow State University</dd>
               </div>
-            </div>
-            <div class="metric reveal">
-              <div class="v">5w &rarr; 2w</div>
-              <div class="l">
-                junior QA onboarding ramp, after the playbooks were written
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ PROJECTS ============ -->
-      <section class="projects" id="projects">
-        <div class="wrap">
-          <div class="reveal">
-            <p class="eyebrow">Projects</p>
-            <h2>My own work, in public</h2>
-            <p class="subnote">
-              Work done for an employer belongs to them, so this section is only
-              what is mine. Both projects are public and running today, and both
-              keep changing.
-            </p>
-          </div>
-
-          <div class="cards project-cards">
-            <article class="card project-card reveal">
-              <p class="card-kind">Test automation</p>
-              <div class="card-body">
-                <h3>Agentic Playwright suite</h3>
-                <p>
-                  Twenty end to end cases and twenty visual ones against a
-                  public demo storefront, in Playwright and TypeScript, with the
-                  functional cases replayed on WebKit. The tests are authored
-                  and repaired by Claude Code agents working over Playwright
-                  MCP, every job in the pipeline runs inside an image the
-                  pipeline builds first, and each push to main publishes the
-                  reports.
-                </p>
-                <ul class="stack">
-                  <li>Playwright</li>
-                  <li>TypeScript</li>
-                  <li>Yarn</li>
-                  <li>Docker</li>
-                  <li>Claude Code and MCP</li>
-                  <li>Allure</li>
-                </ul>
-                <p class="card-note">
-                  Published on every push: dashboard, functional, visual, suite
-                  health, traces
-                </p>
-              </div>
-              <div class="card-actions">
-                <a
-                  class="btn btn-primary"
-                  href="https://github.com/artemcherbaev/agentic-playwright-suite"
-                  >GitHub repository</a
-                >
-                <a class="btn btn-ghost" href="qa-suite.html"
-                  >Run the QA suites</a
-                >
-              </div>
-            </article>
-
-            <article class="card project-card reveal">
-              <p class="card-kind">Portfolio and CV</p>
-              <div class="card-body">
-                <h3>This site</h3>
-                <p>
-                  The page you are reading, and the CV behind it. Written by
-                  hand, no framework and no build step, with its own Playwright
-                  smoke suite running on every push and a Pages deploy that only
-                  happens once the suite is green.
-                </p>
-                <ul class="stack">
-                  <li>HTML</li>
-                  <li>CSS</li>
-                  <li>Playwright</li>
-                  <li>GitHub Actions</li>
-                  <li>GitHub Pages</li>
-                </ul>
-                <p class="card-note">
-                  Smoke suite gates the deploy: a broken page does not publish
-                </p>
-              </div>
-              <div class="card-actions">
-                <a
-                  class="btn btn-primary"
-                  href="https://github.com/artemcherbaev/portfolio"
-                  >GitHub repository</a
-                >
-                <a class="btn btn-ghost" href="cv.html">Read the CV</a>
-              </div>
-            </article>
+            </dl>
           </div>
         </div>
       </section>
 
       <!-- ============ CONTACT ============ -->
-      <section class="contact" id="contact">
-        <div class="wrap">
+      <section class="section alt" id="contact" aria-labelledby="contactTitle">
+        <div class="wrap contact-grid">
           <div class="reveal">
-            <p class="eyebrow">Get in touch</p>
-            <h2>Open to QA Automation Engineer and SDET roles</h2>
-            <p class="subnote">
-              Remote, in international product teams, and to work where agentic
-              testing tooling is part of the engineering culture rather than a
-              pilot.
+            <p class="eyebrow"><span class="idx">06</span> Contact</p>
+            <h2 id="contactTitle">Open to QA Automation Engineer and SDET roles</h2>
+            <p class="lede">
+              Remote, in international product teams &mdash; ideally where agentic testing tooling is part of
+              the engineering culture rather than a pilot. Email is fastest; I usually reply within a day.
             </p>
+            <ul class="contact-list">
+              <li>
+                <span class="k">Email</span>
+                <a href="mailto:artemcherbaevjob@gmail.com" id="emailLink">artemcherbaevjob@gmail.com</a>
+                <button class="copy-btn" type="button" data-copy="artemcherbaevjob@gmail.com">
+                  <svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>
+                  <span>Copy</span>
+                </button>
+              </li>
+              <li>
+                <span class="k">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/artemcherbaev">in/artemcherbaev</a>
+                <span></span>
+              </li>
+              <li>
+                <span class="k">GitHub</span>
+                <a href="https://github.com/ArtemCherbaev">github.com/ArtemCherbaev</a>
+                <span></span>
+              </li>
+              <li>
+                <span class="k">CV</span>
+                <a href="assets/cv/Artem-Cherbaev-CV.pdf" download="Artem-Cherbaev-CV.pdf">Download the PDF</a>
+                <a class="copy-btn" href="cv.html">Read online</a>
+              </li>
+            </ul>
           </div>
 
-          <div class="contact-grid">
-            <div class="reveal">
-              <h3 class="subhead">Where to reach me</h3>
-              <ul class="contact-list">
-                <li>
-                  <span class="k">Email</span
-                  ><a href="mailto:artemcherbaevjob@gmail.com"
-                    >artemcherbaevjob@gmail.com</a
-                  >
-                </li>
-                <li>
-                  <span class="k">LinkedIn</span
-                  ><a href="https://linkedin.com/in/artemcherbaev"
-                    >linkedin.com/in/artemcherbaev</a
-                  >
-                </li>
-                <li>
-                  <span class="k">GitHub</span
-                  ><a href="https://github.com/artemcherbaev"
-                    >github.com/artemcherbaev</a
-                  >
-                </li>
-                <li>
-                  <span class="k">CV</span
-                  ><a
-                    href="assets/cv/Artem-Cherbaev-CV.pdf"
-                    download="Artem-Cherbaev-CV.pdf"
-                    >Download the PDF</a
-                  >
-                </li>
-                <li>
-                  <span class="k">Based in</span
-                  ><span>Curitiba, Brazil. UTC&minus;3</span>
-                </li>
-              </ul>
+          <form class="card composer reveal" id="composer" action="#" novalidate>
+            <h3>Write to me</h3>
+            <p class="hint">
+              Drafts the email in your own mail app &mdash; nothing is sent or stored by this page.
+            </p>
+            <div class="field-row">
+              <div class="field">
+                <label for="cName">Your name</label>
+                <input id="cName" name="name" type="text" autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="cCompany">Company <span class="muted">(optional)</span></label>
+                <input id="cCompany" name="company" type="text" autocomplete="organization" />
+              </div>
             </div>
-
-            <div class="contact-note reveal">
-              <p>
-                Email is the fastest way to reach me, and LinkedIn works just as
-                well if that is where you found me. I usually reply within a
-                day.
-              </p>
-              <p>
-                If you are hiring, the PDF has the full history and is ready to
-                attach to an application.
-              </p>
-
-              <button
-                class="more"
-                type="button"
-                id="formToggle"
-                aria-expanded="false"
-                aria-controls="contactForm"
-              >
-                Prefer to write here? Open the contact form
-                <svg
-                  class="chev"
-                  viewBox="0 0 24 24"
-                  width="15"
-                  height="15"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="m6 9.5 6 6 6-6" />
-                </svg>
+            <div class="field">
+              <label for="cTopic">What is it about</label>
+              <select id="cTopic" name="topic">
+                <option value="A role">A role</option>
+                <option value="A contract">A contract or project</option>
+                <option value="Your suite">A question about your work</option>
+                <option value="Hello">Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cMessage">Message</label>
+              <textarea id="cMessage" name="message" rows="5"></textarea>
+            </div>
+            <div class="composer-actions">
+              <a class="btn btn-primary" id="composeMail" href="mailto:artemcherbaevjob@gmail.com">
+                <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+                Open in your email app
+              </a>
+              <button class="btn btn-secondary" type="button" id="composeCopy">
+                <svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>
+                Copy message
               </button>
-
-              <!-- Replace the action with your own Formspree (or equivalent) endpoint.
-               Until then the form is inert on purpose rather than silently dropping mail. -->
-              <form
-                class="form"
-                id="contactForm"
-                method="post"
-                action="https://formspree.io/f/REPLACE_ME"
-                hidden
-              >
-                <div>
-                  <label for="cf-name">Your name</label>
-                  <input
-                    id="cf-name"
-                    name="name"
-                    type="text"
-                    autocomplete="name"
-                    required
-                  />
-                </div>
-                <div>
-                  <label for="cf-email">Your email</label>
-                  <input
-                    id="cf-email"
-                    name="email"
-                    type="email"
-                    autocomplete="email"
-                    required
-                  />
-                </div>
-                <div>
-                  <label for="cf-msg">Message</label>
-                  <textarea id="cf-msg" name="message" required></textarea>
-                </div>
-                <div>
-                  <button class="btn btn-primary" type="submit">Send</button>
-                </div>
-              </form>
             </div>
-          </div>
+            <p class="composer-status" id="composeStatus" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <span>&copy; <span id="year">2026</span> Artem Cherbaev</span>
-        <span
-          ><a href="https://github.com/artemcherbaev/portfolio"
-            >Source on GitHub</a
-          >
-          &middot; built by hand, tested on every push</span
-        >
+        <span>&copy; 2026 Artem Cherbaev</span>
+        <nav aria-label="Footer">
+          <a href="cv.html">CV</a>
+          <a href="qa-suite.html">The suite, replayed</a>
+          <a href="https://github.com/ArtemCherbaev/ArtemCherbaev.github.io">Source</a>
+          <a href="https://www.linkedin.com/in/artemcherbaev">LinkedIn</a>
+        </nav>
+        <span class="footer-note" id="buildNote">Built by hand, tested on every push</span>
       </div>
     </footer>
-
-    <script src="assets/js/main.js?v=20260919"></script>
   </body>
 </html>

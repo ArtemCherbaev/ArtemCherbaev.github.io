@@ -5,294 +5,280 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; frame-src 'none'"
+      content="default-src 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <link
-      rel="canonical"
-      href="https://artemcherbaev.github.io/portfolio/qa-suite.html"
-    />
-    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-    <title>Run the QA suites, Artem Cherbaev</title>
+    <title>The last CI run, replayed — Agentic Playwright Suite</title>
     <meta
       name="description"
-      content="How to run the agentic Playwright suite locally, what each published report shows, and what the pipeline does on every push."
+      content="The Agentic Playwright Suite's last CI run, replayed lane by lane from the feed its pipeline publishes: Chromium, WebKit, visual regression and the REST API."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Allura&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
-      rel="stylesheet"
+    <link rel="canonical" href="https://artemcherbaev.github.io/qa-suite.html" />
+    <meta name="theme-color" content="#0b6e4f" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="The last CI run, replayed — Agentic Playwright Suite" />
+    <meta
+      property="og:description"
+      content="Four lanes, every case, at the pace it actually ran. Read from the feed the pipeline publishes on every push."
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260919" />
-    <link rel="stylesheet" href="assets/css/pages.css?v=20260919" />
+    <meta property="og:url" content="https://artemcherbaev.github.io/qa-suite.html" />
+    <meta property="og:image" content="https://artemcherbaev.github.io/assets/img/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+    <link rel="preload" href="assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <link rel="stylesheet" href="assets/css/runner.css" />
+    <script src="assets/js/theme.js"></script>
+    <script type="module" src="assets/js/site.js"></script>
+    <script type="module" src="assets/js/runner.js"></script>
   </head>
   <body>
-    <header class="site-header is-stuck" id="siteHeader">
+    <svg class="sr-only" aria-hidden="true" focusable="false">
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></symbol>
+      <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5" /><path d="m11 18-6-6 6-6" /></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7" /><path d="M8 7h9v9" /></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11" /><path d="m7 11 5 5 5-5" /><path d="M5 20h14" /></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" /></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8.5 5.5v13M15.5 5.5v13" /></symbol>
+      <symbol id="i-restart" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3" /><path d="M4.5 4.5v4h4" /></symbol>
+      <symbol id="i-end" viewBox="0 0 24 24"><path d="m6 6 7 6-7 6z" /><path d="M17 6v12" /></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" /></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4" /></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4 4" /></symbol>
+      <symbol id="i-github" viewBox="0 0 16 16"><path fill="currentColor" stroke="none" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" /></symbol>
+    </svg>
+
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header" id="siteHeader">
       <div class="wrap header-inner">
-        <a class="monogram" href="index.html"
-          ><svg
-            class="mark"
-            viewBox="0 0 32 32"
-            width="30"
-            height="30"
-            aria-hidden="true"
-            focusable="false"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.6"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M4 22 L10 9 L16 22" />
-            <path d="M6.6 17.6 H13.4" />
-            <path d="M19 22 L23 26 L29 8" /></svg
-          ><em>Portfolio</em></a
-        >
-        <nav class="nav" aria-label="Main">
-          <a href="index.html#about">About</a>
-          <a href="index.html#experience">Experience</a>
-          <a href="index.html#projects">Projects</a>
-          <a href="index.html#contact">Contact</a>
-          <a
-            class="nav-page"
-            href="assets/cv/Artem-Cherbaev-CV.pdf"
-            download="Artem-Cherbaev-CV.pdf"
-            title="Download the CV, 2 page PDF"
-            aria-label="Download the CV, 2 page PDF"
-            ><svg
-              class="dl-icon"
-              viewBox="0 0 24 24"
-              width="15"
-              height="15"
-              aria-hidden="true"
-              focusable="false"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.1"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M12 3.5v10.5" />
-              <path d="M7.7 10.2 12 14.5l4.3-4.3" />
-              <path d="M4.5 19.5h15" /></svg
-            >CV</a
-          >
+        <a class="brand" href="./" aria-label="Artem Cherbaev, home">
+          <span class="brand-mark" aria-hidden="true">AC</span>
+          <span class="brand-name">Artem Cherbaev</span>
+        </a>
+        <nav class="nav" id="siteNav" aria-label="Main">
+          <a href="./#work">Work</a>
+          <a href="./#experience">Experience</a>
+          <a href="./#skills">Skills</a>
+          <a href="./#about">About</a>
+          <a href="./#contact">Contact</a>
         </nav>
+        <div class="header-tools">
+          <a class="status-pill" id="statusPill" href="#replay" hidden>
+            <span class="dot live" aria-hidden="true"></span>
+            <span class="pill-text"></span>
+          </a>
+          <button class="icon-btn theme-toggle" type="button" id="themeToggle" aria-label="Switch colour theme">
+            <svg class="icon moon" aria-hidden="true"><use href="#i-moon" /></svg>
+            <svg class="icon sun" aria-hidden="true"><use href="#i-sun" /></svg>
+          </button>
+          <a class="btn btn-quiet cv-btn" href="assets/cv/Artem-Cherbaev-CV.pdf" download="Artem-Cherbaev-CV.pdf">
+            <svg class="icon" aria-hidden="true"><use href="#i-download" /></svg>
+            CV<span class="cv-long sr-only"> (PDF, 2 pages)</span>
+          </a>
+          <button
+            class="icon-btn menu-btn"
+            type="button"
+            id="menuBtn"
+            aria-label="Open the menu"
+            aria-expanded="false"
+            aria-controls="siteNav"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+          </button>
+        </div>
       </div>
     </header>
 
-    <main class="page" id="top">
-      <div class="wrap">
-        <a class="back" href="index.html#projects"
-          ><svg
-            viewBox="0 0 24 24"
-            width="15"
-            height="15"
-            aria-hidden="true"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.1"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M19 12H6" />
-            <path d="m11.5 5.5-6.5 6.5 6.5 6.5" /></svg
-          >Back to projects</a
-        >
-
-        <div class="page-head">
-          <h1>Run the QA suites</h1>
-          <p class="sub">
-            The agentic Playwright suite is public and runs on any machine with
-            Node and Docker. Below is how to run it yourself, and what each
-            published report answers.
+    <main id="main">
+      <section class="page-head">
+        <div class="wrap">
+          <a class="back" href="./#work">
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+            Back to the work
+          </a>
+          <p class="eyebrow">Project &middot; the last CI run, replayed</p>
+          <h1>Agentic Playwright Suite</h1>
+          <p class="lede">
+            Every push to main runs four test lanes in CI and publishes what happened. This page reads that
+            record and replays the last run, lane by lane, at the pace it actually ran. Nothing on it is typed
+            in by hand, and a browser cannot start Playwright itself &mdash; so what you watch is the published
+            run, not a new one.
           </p>
+          <div class="head-actions">
+            <a class="btn btn-secondary" href="https://github.com/ArtemCherbaev/agentic-playwright-suite">
+              <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
+              Repository
+            </a>
+            <a class="btn btn-quiet" href="https://artemcherbaev.github.io/agentic-playwright-suite/">
+              Allure dashboard
+              <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+            </a>
+          </div>
         </div>
+      </section>
 
-        <h2 class="subhead">Run it locally</h2>
-        <p class="subnote">
-          Four commands from a clean checkout. The visual suite runs in the same
-          image CI uses, because baselines are Chromium on Linux and a local
-          Windows or macOS run would compare against a set that was never
-          committed.
-        </p>
-
-        <ol class="run-steps">
-          <li>
-            <h3>Clone and install</h3>
-            <p>
-              Yarn 4 is pinned through Corepack, so there is nothing to install
-              globally.
+      <section class="runner" aria-label="The last run">
+        <div class="wrap">
+          <noscript>
+            <p class="card notice">
+              The replay needs JavaScript. The same run is in the
+              <a href="https://artemcherbaev.github.io/agentic-playwright-suite/">Allure dashboard</a>, and the
+              raw feed is <a href="/agentic-playwright-suite/feed/latest.json">here</a>.
             </p>
-            <pre
-              class="cmd"
-            ><span class="c">$</span> git clone https://github.com/artemcherbaev/agentic-playwright-suite.git
-<span class="c">$</span> cd agentic-playwright-suite
-<span class="c">$</span> corepack enable
-<span class="c">$</span> yarn install</pre>
-          </li>
-          <li>
-            <h3>Install the browser</h3>
-            <p>
-              Only Chromium is needed for the functional suite locally; CI adds
-              WebKit.
-            </p>
-            <pre
-              class="cmd"
-            ><span class="c">$</span> yarn playwright:install:chromium</pre>
-          </li>
-          <li>
-            <h3>Run the functional suite</h3>
-            <p>
-              Twenty end to end cases against the demo storefront. Add a grep
-              while working on one case.
-            </p>
-            <pre class="cmd"><span class="c">$</span> yarn test:e2e
-<span class="c">$</span> yarn playwright test --grep "TC-12"</pre>
-          </li>
-          <li>
-            <h3>Run the visual suite in the CI image</h3>
-            <p>
-              Twenty screenshot comparisons against committed Linux baselines.
-            </p>
-            <pre class="cmd"><span class="c">$</span> yarn docker:vr</pre>
-          </li>
-        </ol>
+          </noscript>
 
-        <h2 class="subhead">Published on every push to main</h2>
-        <p class="subnote">
-          Each report answers a different question, which is why there is more
-          than one. All of them are regenerated by the pipeline, never by hand.
-        </p>
+          <div class="card run-summary" id="runSummary" data-state="loading">
+            <div class="run-title">
+              <span class="badge" data-badge>Loading the last run&hellip;</span>
+              <h2 data-run-title>Run</h2>
+              <p class="run-meta" data-run-meta></p>
+            </div>
+            <dl class="tiles" data-tiles aria-live="polite"></dl>
+          </div>
 
-        <table class="report-table">
-          <thead>
-            <tr>
-              <th scope="col">Report</th>
-              <th scope="col">What it answers</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <a
-                  href="https://artemcherbaev.github.io/agentic-playwright-suite/metrics/"
-                  >Suite health</a
-                >
-              </td>
-              <td class="desc">
-                Pass rate, flaky rate, p50 and p95 duration, repeat offenders,
-                each against a stated threshold rather than a vibe.
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="https://artemcherbaev.github.io/agentic-playwright-suite/"
-                  >Test results</a
-                >
-              </td>
-              <td class="desc">
-                Both suites in one dashboard, with the Chromium and WebKit runs
-                split under the functional one.
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="https://artemcherbaev.github.io/agentic-playwright-suite/functional/"
-                  >Functional</a
-                >
-              </td>
-              <td class="desc">
-                The end to end suite on its own, with its trend across runs.
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="https://artemcherbaev.github.io/agentic-playwright-suite/visual/"
-                  >Visual</a
-                >
-              </td>
-              <td class="desc">
-                The screenshot suite on its own, with expected, actual and diff
-                for any failure.
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="https://artemcherbaev.github.io/agentic-playwright-suite/playwright-report/"
-                  >Trace viewer</a
-                >
-              </td>
-              <td class="desc">
-                Every step of every case, replayable, including the network and
-                the DOM at each step.
-              </td>
-            </tr>
-          </tbody>
-        </table>
+          <div class="card replay" id="replay" hidden>
+            <div class="replay-bar">
+              <div class="replay-controls">
+                <button class="btn btn-primary" type="button" id="playBtn">
+                  <svg class="icon" aria-hidden="true"><use href="#i-play" /></svg>
+                  <span>Replay the run</span>
+                </button>
+                <button class="icon-btn" type="button" id="restartBtn" aria-label="Replay from the start" title="Replay from the start">
+                  <svg class="icon" aria-hidden="true"><use href="#i-restart" /></svg>
+                </button>
+                <button class="icon-btn" type="button" id="endBtn" aria-label="Skip to the end" title="Skip to the end">
+                  <svg class="icon" aria-hidden="true"><use href="#i-end" /></svg>
+                </button>
+              </div>
+              <div class="speed" role="group" aria-label="Replay speed" id="speed"></div>
+              <span class="clock mono" id="clock" aria-live="off">0:00 / 0:00</span>
+            </div>
 
-        <h2 class="subhead mt-section">What the pipeline does</h2>
-        <table class="report-table">
-          <thead>
-            <tr>
-              <th scope="col">Trigger</th>
-              <th scope="col">Runs</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Pull request</td>
-              <td class="desc">
-                Static checks, functional suite, visual suite.
-              </td>
-            </tr>
-            <tr>
-              <td>Push to main</td>
-              <td class="desc">
-                The same, then the dashboards and the suite health page publish.
-              </td>
-            </tr>
-            <tr>
-              <td>Image or lockfile change</td>
-              <td class="desc">
-                The execution image is rebuilt and pushed to the registry first.
-              </td>
-            </tr>
-          </tbody>
-        </table>
+            <div class="replay-body">
+              <div class="timeline-wrap">
+                <div class="timeline" id="timeline"></div>
+                <p class="timeline-note">
+                  Each lane is its own CI job on its own machine, so all four start at zero. Rows inside a lane are
+                  its parallel workers; a block is a case, as long as it took.
+                </p>
+              </div>
+              <div class="console-cell">
+                <div class="console" id="console" role="log" aria-label="Replay log" tabindex="0"></div>
+              </div>
+            </div>
+            <p class="sr-only" id="replayStatus" role="status" aria-live="polite"></p>
+          </div>
 
-        <p class="subnote mt-section">
-          Main is protected and takes no direct pushes. Every change arrives
-          through a pull request, and the only required check is a gate job that
-          reads the result of all the others, so a job that stops running cannot
-          quietly stop being enforced.
-        </p>
+          <div class="card cases" id="cases" hidden>
+            <div class="cases-head">
+              <h2>Every case in this run</h2>
+              <div class="cases-tools">
+                <div class="filters" role="group" aria-label="Show" id="filters"></div>
+                <label class="search">
+                  <svg class="icon" aria-hidden="true"><use href="#i-search" /></svg>
+                  <span class="sr-only">Search the cases</span>
+                  <input type="search" id="caseSearch" placeholder="Search cases" autocomplete="off" />
+                </label>
+              </div>
+            </div>
+            <div class="table-scroll">
+              <table class="case-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Status</th>
+                    <th scope="col">Case</th>
+                    <th scope="col" class="lane-col">Lane</th>
+                    <th scope="col" class="num">Time</th>
+                  </tr>
+                </thead>
+                <tbody id="caseRows"></tbody>
+              </table>
+            </div>
+            <p class="empty-note" id="casesEmpty" hidden>No case matches.</p>
+          </div>
 
-        <div class="cv-actions">
-          <a
-            class="btn btn-primary"
-            href="https://github.com/artemcherbaev/agentic-playwright-suite"
-            >Open the repository</a
-          >
-          <a class="btn btn-ghost" href="index.html#projects"
-            >Back to projects</a
-          >
+          <div class="card history" id="history" hidden>
+            <div class="history-head">
+              <h2>Recent runs on main</h2>
+              <p class="muted" data-history-note></p>
+            </div>
+            <div class="history-bars" id="historyBars"></div>
+            <div class="history-axis"><span>older</span><span>latest</span></div>
+          </div>
+
+          <div class="reports">
+            <h2 class="reports-title">Published on every push to main</h2>
+            <div class="report-grid">
+              <a class="card report" href="https://artemcherbaev.github.io/agentic-playwright-suite/">
+                <strong>Results dashboard</strong>
+                <span>Every suite in one Allure report, with the trend across runs</span>
+              </a>
+              <a class="card report" href="https://artemcherbaev.github.io/agentic-playwright-suite/functional/">
+                <strong>Functional</strong>
+                <span>The end-to-end suite, Chromium and WebKit side by side</span>
+              </a>
+              <a class="card report" href="https://artemcherbaev.github.io/agentic-playwright-suite/visual/">
+                <strong>Visual regression</strong>
+                <span>Expected, actual and diff for any capture that moved</span>
+              </a>
+              <a class="card report" href="https://artemcherbaev.github.io/agentic-playwright-suite/api/">
+                <strong>REST API</strong>
+                <span>The API suite over HTTP, no browser involved</span>
+              </a>
+              <a class="card report" href="https://artemcherbaev.github.io/agentic-playwright-suite/metrics/">
+                <strong>Suite health</strong>
+                <span>Pass rate, flaky rate, p50 and p95, each against a threshold</span>
+              </a>
+              <a class="card report" href="https://artemcherbaev.github.io/agentic-playwright-suite/playwright-report/">
+                <strong>Trace viewer</strong>
+                <span>Every step of every functional case, replayable</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="how">
+            <div class="how-text">
+              <p class="eyebrow">How this page works</p>
+              <h2>From a push to this page</h2>
+              <p>
+                The suite's pipeline builds one execution image, runs the four lanes in it in parallel, and
+                publishes the reports together with a small run feed: every case, its outcome, when it started
+                within its lane and how long it took. This page reads only that feed, from the same site, and
+                draws the run from it.
+              </p>
+              <p>
+                The feed has a versioned format the pipeline checks before it publishes. A report that would not
+                fit it fails the publish and leaves the previous one up, so this page never has to guess at a
+                shape it was not built for &mdash; and if the feed is unreachable, the page falls back to the
+                reports rather than to numbers nobody measured.
+              </p>
+            </div>
+            <ol class="flow" aria-label="The pipeline, in order">
+              <li><span class="flow-k">1</span>Push to main</li>
+              <li><span class="flow-k">2</span>Execution image, reused unless the dependencies changed</li>
+              <li><span class="flow-k">3</span>Chromium &middot; WebKit &middot; Visual &middot; API, in parallel</li>
+              <li><span class="flow-k">4</span>Allure reports, suite health, traces and the run feed</li>
+              <li><span class="flow-k">5</span>This page replays the feed</li>
+            </ol>
+          </div>
         </div>
-      </div>
+      </section>
     </main>
 
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <span>&copy; <span id="year">2026</span> Artem Cherbaev</span>
-        <span><a href="index.html">Back to the portfolio</a></span>
+        <span>&copy; 2026 Artem Cherbaev</span>
+        <nav aria-label="Footer">
+          <a href="./">Home</a>
+          <a href="cv.html">CV</a>
+          <a href="https://github.com/ArtemCherbaev/agentic-playwright-suite">The suite's source</a>
+          <a href="/agentic-playwright-suite/feed/latest.json">Run feed (JSON)</a>
+        </nav>
+        <span class="footer-note" id="buildNote">Built by hand, tested on every push</span>
       </div>
     </footer>
-
-    <script src="assets/js/main.js?v=20260919"></script>
   </body>
 </html>

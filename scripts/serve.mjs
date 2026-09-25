@@ -14,7 +14,7 @@ import { extname, join, normalize, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(fileURLToPath(new URL('..', import.meta.url)));
-const PORT = Number(process.argv[2] || process.env.PORT || 4173);
+const PORT = Number((/^\d+$/.test(process.argv[2] ?? '') && process.argv[2]) || process.env.PORT || 4173);
 
 const TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -53,7 +53,60 @@ async function resolveFile(full) {
   }
 }
 
+/**
+ * The suite's published site lives under /agentic-playwright-suite/ on the same
+ * origin in production. Locally that path is forwarded to the live site, so a
+ * preview shows the real last run. FEED_FILE serves a local feed instead, for
+ * working on the runner before CI has published anything. The test suite never
+ * reaches either: it answers these requests itself with recorded feeds.
+ */
+const SUITE_PREFIX = '/agentic-playwright-suite/';
+const SUITE_ORIGIN = process.env.SUITE_ORIGIN ?? 'https://artemcherbaev.github.io';
+const flag = (name) => {
+  const i = process.argv.indexOf(name);
+  return i > 0 ? process.argv[i + 1] : undefined;
+};
+// A directory holding latest.json and history.json, e.g. tests/fixtures/feed/passed.
+const FEED_DIR = flag('--feed-dir') ?? process.env.FEED_DIR;
+
+async function suite(req, res) {
+  const path = (req.url || '').split('?')[0];
+  const feedFile = path.match(/\/feed\/(latest|history)\.json$/)?.[1];
+  if (FEED_DIR && feedFile) {
+    try {
+      const body = await readFile(resolve(FEED_DIR, `${feedFile}.json`));
+      res.writeHead(200, { 'content-type': TYPES['.json'], 'cache-control': 'no-store' });
+      res.end(body);
+    } catch {
+      res.writeHead(404, { 'content-type': 'text/plain' });
+      res.end('Not in the fixture directory');
+    }
+    return;
+  }
+  if (SUITE_ORIGIN === 'none') {
+    res.writeHead(404, { 'content-type': 'text/plain' });
+    res.end('The suite is not proxied in this environment');
+    return;
+  }
+  try {
+    const upstream = await fetch(SUITE_ORIGIN + req.url);
+    res.writeHead(upstream.status, {
+      'content-type': upstream.headers.get('content-type') ?? 'application/octet-stream',
+      'cache-control': 'no-store',
+    });
+    res.end(Buffer.from(await upstream.arrayBuffer()));
+  } catch (error) {
+    res.writeHead(502, { 'content-type': 'text/plain' });
+    res.end(`Could not reach ${SUITE_ORIGIN}: ${error.message}`);
+  }
+}
+
 const server = createServer(async (req, res) => {
+  if ((req.url || '').startsWith(SUITE_PREFIX)) {
+    await suite(req, res);
+    return;
+  }
+
   const requested = safePath(req.url || '/');
   if (!requested) {
     res.writeHead(403, { 'content-type': 'text/plain' });

@@ -1,0 +1,4 @@
+{
+  "note": "Replaced at deploy time with what the deploy passed. Left empty here so a local preview has nothing to claim.",
+  "checks": null
+}

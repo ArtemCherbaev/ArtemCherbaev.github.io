@@ -5,7 +5,18 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@playwright/test@npm:^1.49.0":
+"@axe-core/playwright@npm:^4.11.0":
+  version: 4.13.0
+  resolution: "@axe-core/playwright@npm:4.13.0"
+  dependencies:
+    axe-core: "npm:~4.13.0"
+  peerDependencies:
+    playwright-core: ">= 1.0.0"
+  checksum: 10c0/0938f24f3955bfa11c77c326300646a4f1dcd513389320ace9985d68486a622c443b2a34cd86f6002f617a3395623ad1e99a622450830873166aaa7e0312aa68
+  languageName: node
+  linkType: hard
+
+"@playwright/test@npm:1.63.0":
   version: 1.63.0
   resolution: "@playwright/test@npm:1.63.0"
   dependencies:
@@ -22,6 +33,13 @@ __metadata:
   dependencies:
     undici-types: "npm:~6.21.0"
   checksum: 10c0/3a17e19f7b7b7a6d6c695ef8b0a34b70f84829a1539f57d338487bc3b51ddd4ca86ffbcbcc4f1307a41de83d02c1b7dfbb16e8cb6a9c3a8360b4306ccf9ead2d
+  languageName: node
+  linkType: hard
+
+"axe-core@npm:~4.13.0":
+  version: 4.13.0
+  resolution: "axe-core@npm:4.13.0"
+  checksum: 10c0/0e3be8be10eea64beddefd3007e1425424ff60c26c5f4d5f748ec48c2825356839c02ad4167fc1f03a6d84ecd82108f49fb2846ab7fe949273787391745561ca
   languageName: node
   linkType: hard
 
@@ -49,7 +67,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "portfolio@workspace:."
   dependencies:
-    "@playwright/test": "npm:^1.49.0"
+    "@axe-core/playwright": "npm:^4.11.0"
+    "@playwright/test": "npm:1.63.0"
     "@types/node": "npm:^22.10.0"
   languageName: unknown
   linkType: soft

@@ -5,37 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; frame-src 'none'"
+      content="default-src 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'"
     />
     <meta name="robots" content="noindex" />
-    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-    <title>Page not found, Artem Cherbaev</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Allura&family=Archivo:wght@500;600&family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260919" />
-    <link rel="stylesheet" href="assets/css/pages.css?v=20260919" />
+    <title>Page not found — Artem Cherbaev</title>
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/css/site.css" />
+    <script src="/assets/js/theme.js"></script>
   </head>
   <body>
-    <main class="page">
-      <div class="wrap lost">
-        <div>
-          <p class="code">404, page not found</p>
-          <h1>Nothing here</h1>
-          <p>
-            That address does not exist on this site. Either it moved, or the
-            link that brought you here was wrong. The portfolio itself is one
-            click away.
-          </p>
-          <div class="cv-actions actions-centered">
-            <a class="btn btn-primary" href="index.html"
-              >Back to the portfolio</a
-            >
-            <a class="btn btn-ghost" href="index.html#contact">Get in touch</a>
-          </div>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/" aria-label="Artem Cherbaev, home">
+          <span class="brand-mark" aria-hidden="true">AC</span>
+          <span class="brand-name">Artem Cherbaev</span>
+        </a>
+      </div>
+    </header>
+    <main class="not-found">
+      <div class="wrap">
+        <p class="eyebrow">404 &middot; expected page to exist</p>
+        <h1>This page failed its existence check.</h1>
+        <p class="lede">
+          The address may be mistyped, or the page moved when this site was rebuilt. Everything worth reading is one
+          click away.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/">Go to the home page</a>
+          <a class="btn btn-secondary" href="/qa-suite.html">Watch the suite run</a>
+          <a class="btn btn-secondary" href="/cv.html">Read the CV</a>
         </div>
       </div>
     </main>

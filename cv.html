@@ -5,431 +5,316 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'none'; base-uri 'none'; form-action 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; frame-src 'none'"
+      content="default-src 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta name="robots" content="index,follow" />
-    <link
-      rel="canonical"
-      href="https://artemcherbaev.github.io/portfolio/cv.html"
-    />
-    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-    <title>CV, Artem Cherbaev, QA Engineer</title>
+    <title>CV — Artem Cherbaev, QA Engineer</title>
     <meta
       name="description"
-      content="Full career history of Artem Cherbaev, QA Engineer. Five years owning quality end to end at a US broker-dealer: Playwright, Python and TypeScript, mobile and API automation, CI/CD quality gates and AI-assisted testing."
+      content="CV of Artem Cherbaev, QA Engineer: five years owning quality end to end at a US broker-dealer, 1,450+ automated UI, API and E2E tests, Playwright and TypeScript, mobile and API automation, CI/CD quality gates and AI-assisted testing."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Allura&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260919" />
-    <link rel="stylesheet" href="assets/css/pages.css?v=20260919" />
+    <link rel="canonical" href="https://artemcherbaev.github.io/cv.html" />
+    <meta name="theme-color" content="#0b6e4f" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="CV — Artem Cherbaev, QA Engineer" />
+    <meta property="og:url" content="https://artemcherbaev.github.io/cv.html" />
+    <meta property="og:image" content="https://artemcherbaev.github.io/assets/img/og.png" />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+    <link rel="preload" href="assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <link rel="stylesheet" href="assets/css/cv.css" />
+    <script src="assets/js/theme.js"></script>
+    <script type="module" src="assets/js/site.js"></script>
   </head>
   <body>
-    <header class="site-header is-stuck" id="siteHeader">
+    <svg class="sr-only" aria-hidden="true" focusable="false">
+      <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5" /><path d="m11 18-6-6 6-6" /></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11" /><path d="m7 11 5 5 5-5" /><path d="M5 20h14" /></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" /></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4" /></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></symbol>
+    </svg>
+
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header" id="siteHeader">
       <div class="wrap header-inner">
-        <a class="monogram" href="index.html"
-          ><svg
-            class="mark"
-            viewBox="0 0 32 32"
-            width="30"
-            height="30"
-            aria-hidden="true"
-            focusable="false"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.6"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M4 22 L10 9 L16 22" />
-            <path d="M6.6 17.6 H13.4" />
-            <path d="M19 22 L23 26 L29 8" /></svg
-          ><em>Portfolio</em></a
-        >
-        <nav class="nav" aria-label="Main">
-          <a href="index.html#about">About</a>
-          <a href="index.html#experience">Experience</a>
-          <a href="index.html#projects">Projects</a>
-          <a href="index.html#contact">Contact</a>
-          <a
-            class="nav-page"
-            href="assets/cv/Artem-Cherbaev-CV.pdf"
-            download="Artem-Cherbaev-CV.pdf"
-            title="Download the CV, 2 page PDF"
-            aria-label="Download the CV, 2 page PDF"
-            ><svg
-              class="dl-icon"
-              viewBox="0 0 24 24"
-              width="15"
-              height="15"
-              aria-hidden="true"
-              focusable="false"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.1"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M12 3.5v10.5" />
-              <path d="M7.7 10.2 12 14.5l4.3-4.3" />
-              <path d="M4.5 19.5h15" /></svg
-            >CV</a
-          >
+        <a class="brand" href="./" aria-label="Artem Cherbaev, home">
+          <span class="brand-mark" aria-hidden="true">AC</span>
+          <span class="brand-name">Artem Cherbaev</span>
+        </a>
+        <nav class="nav" id="siteNav" aria-label="Main">
+          <a href="./#work">Work</a>
+          <a href="./#experience">Experience</a>
+          <a href="./#skills">Skills</a>
+          <a href="./#about">About</a>
+          <a href="./#contact">Contact</a>
         </nav>
+        <div class="header-tools">
+          <a class="status-pill" id="statusPill" href="qa-suite.html" hidden>
+            <span class="dot live" aria-hidden="true"></span>
+            <span class="pill-text"></span>
+          </a>
+          <button class="icon-btn theme-toggle" type="button" id="themeToggle" aria-label="Switch colour theme">
+            <svg class="icon moon" aria-hidden="true"><use href="#i-moon" /></svg>
+            <svg class="icon sun" aria-hidden="true"><use href="#i-sun" /></svg>
+          </button>
+          <a class="btn btn-quiet cv-btn" href="assets/cv/Artem-Cherbaev-CV.pdf" download="Artem-Cherbaev-CV.pdf">
+            <svg class="icon" aria-hidden="true"><use href="#i-download" /></svg>
+            CV<span class="cv-long sr-only"> (PDF, 2 pages)</span>
+          </a>
+          <button
+            class="icon-btn menu-btn"
+            type="button"
+            id="menuBtn"
+            aria-label="Open the menu"
+            aria-expanded="false"
+            aria-controls="siteNav"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+          </button>
+        </div>
       </div>
     </header>
 
-    <main class="page" id="top">
-      <div class="wrap">
-        <a class="back" href="index.html"
-          ><svg
-            viewBox="0 0 24 24"
-            width="15"
-            height="15"
-            aria-hidden="true"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.1"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M19 12H6" />
-            <path d="m11.5 5.5-6.5 6.5 6.5 6.5" /></svg
-          >Back to the portfolio</a
-        >
-
-        <div class="page-head">
-          <h1>Artem Cherbaev</h1>
-          <p class="sub">
-            QA Engineer, manual and automation. Web, mobile and microservice
-            backends, with test strategy and automation infrastructure built
-            from zero at a US broker-dealer.
-          </p>
-          <div class="cv-actions">
-            <a
-              class="btn btn-primary"
-              href="assets/cv/Artem-Cherbaev-CV.pdf"
-              download="Artem-Cherbaev-CV.pdf"
-              >Download the PDF</a
-            >
-            <a class="btn btn-ghost" href="index.html#contact">Get in touch</a>
-          </div>
+    <main id="main" class="cv-page">
+      <div class="wrap cv-wrap">
+        <div class="cv-tools">
+          <a class="back" href="./">
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+            Back to the portfolio
+          </a>
+          <a class="btn btn-primary" href="assets/cv/Artem-Cherbaev-CV.pdf" download="Artem-Cherbaev-CV.pdf">
+            <svg class="icon" aria-hidden="true"><use href="#i-download" /></svg>
+            Download the PDF
+          </a>
         </div>
 
-        <div class="cv-grid">
-          <div>
-            <section class="cv-section">
-              <h2>Profile</h2>
-              <p class="lead">
-                QA Engineer with five years owning quality end to end for web,
-                mobile (iOS and Android) and microservice backends at a US
-                broker-dealer — manual and automation, from test strategy, test
-                plans and risk-based test design through end to end suites
-                running in CI/CD. Joined as the first QA engineer on the team
-                and built the function from zero: QA process, defect workflow,
-                test documentation, and 1,450+ automated UI, API and end to end
-                tests across Python and TypeScript, starting with Selenium and
-                Pytest and later migrating the suite to Playwright. Equally
-                comfortable defining a QA process from scratch and operating
-                inside an established one alongside other engineers. Deliberate,
-                heavy user of AI-assisted testing — Claude Code, MCP, Cursor and
-                agents — for test generation, log analysis and defect triage.
-              </p>
-            </section>
+        <article class="card cv">
+          <header class="cv-head">
+            <div>
+              <h1>Artem Cherbaev</h1>
+              <p class="cv-role">QA Engineer &middot; Manual &amp; Automation</p>
+            </div>
+            <ul class="cv-contact">
+              <li><a href="mailto:artemcherbaevjob@gmail.com">artemcherbaevjob@gmail.com</a></li>
+              <li><a href="https://www.linkedin.com/in/artemcherbaev">linkedin.com/in/artemcherbaev</a></li>
+              <li><a href="https://github.com/ArtemCherbaev">github.com/ArtemCherbaev</a></li>
+              <li>Curitiba, Brazil &middot; remote</li>
+            </ul>
+          </header>
 
-            <section class="cv-section">
-              <h2>Experience</h2>
+          <section class="cv-section" aria-labelledby="cvSummary">
+            <h2 id="cvSummary">Summary</h2>
+            <p>
+              QA Engineer with 5+ years owning quality end to end for web, mobile (iOS and Android) and
+              microservice backends at a US broker-dealer &mdash; manual and automation, from test strategy, test
+              plans and risk-based test design through end-to-end suites running in CI/CD. Joined as the first QA
+              engineer on the team and built the function from zero: QA process, defect workflow, test
+              documentation, and 1,450+ automated UI, API and E2E tests across Python and TypeScript, starting with
+              Selenium and Pytest and later migrating the suite to Playwright. Equally comfortable defining a QA
+              process from scratch and operating inside an established one. A deliberate, heavy user of
+              AI-assisted testing (Claude Code, MCP, Cursor, AI agents) for test generation, log analysis and
+              defect triage.
+            </p>
+          </section>
 
-              <article class="cv-role">
+          <section class="cv-section" aria-labelledby="cvExperience">
+            <h2 id="cvExperience">Experience</h2>
+            <div class="cv-job">
+              <div class="cv-job-head">
                 <h3>QA Engineer</h3>
-                <p class="where">
-                  Lime Trading, an award-winning broker-dealer operating in the
-                  USA
-                </p>
-                <p class="when">March 2021 to July 2026</p>
-                <ul>
-                  <li>
-                    Built the QA function from scratch as the first and only QA
-                    engineer on the team — defined the test strategy, test plan
-                    and entry/exit criteria, set up the defect workflow and test
-                    documentation in Jira, TestRail, Qase and Confluence, and
-                    stood up the full automation infrastructure for web,
-                    iOS/Android and backend microservices.
-                  </li>
-                  <li>
-                    Designed and maintained the manual regression suite and
-                    release checklists using formal test-design techniques —
-                    equivalence partitioning, boundary value analysis, decision
-                    tables, state transition and pairwise testing — prioritised
-                    by risk, and complemented them with session-based
-                    exploratory testing to find what scripted cases miss.
-                  </li>
-                  <li>
-                    Reviewed requirements and acceptance criteria before
-                    development started, maintained a traceability matrix from
-                    requirement to test case to defect, and resolved
-                    specification ambiguity at the design stage rather than in
-                    QA.
-                  </li>
-                  <li>
-                    Owned release quality across 48+ releases — ran release
-                    regression and smoke testing, coordinated UAT, prioritised
-                    defects by severity and impact, and documented 600+ defects
-                    in Jira with a reopen rate below 5%.
-                  </li>
-                  <li>
-                    Built the first automated UI and end to end suites from the
-                    ground up with Selenium and Python, then led the migration
-                    to Playwright and TypeScript as the front end matured —
-                    re-architecting around the Page Object Model, API-driven
-                    test data setup and teardown, role-based session fixtures
-                    and parallel execution, and replacing sleeps with explicit
-                    state polling so the suite was reliable enough to gate
-                    releases on. Playwright traces, video and screenshots cut
-                    failure triage time sharply.
-                  </li>
-                  <li>
-                    Established mobile testing and automation for iOS and
-                    Android with Appium (XCUITest driver), real devices and
-                    BrowserStack, covering critical user flows across a device
-                    and OS version matrix and catching platform-specific defects
-                    pre-release; handled WebDriverAgent signing, provisioning
-                    profiles and native selector stability.
-                  </li>
-                  <li>
-                    Built the API automation layer with Pytest and Requests
-                    against REST and gRPC services documented in
-                    Swagger/OpenAPI, and validated backend correctness end to
-                    end — advanced SQL against PostgreSQL and MySQL plus Kafka
-                    and RabbitMQ message flows between microservices.
-                  </li>
-                  <li>
-                    Integrated every suite into CI/CD (TeamCity, Jenkins, GitHub
-                    Actions) as a tiered pipeline — smoke on every pull request
-                    as a merge gate, full regression nightly and pre-release,
-                    per-service suites on deploy to staging — running in Docker
-                    against Kubernetes-deployed test environments, with Allure
-                    reporting and failure artifacts for flake-history analysis.
-                  </li>
-                  <li>
-                    Reduced production defects by 60% by designing and
-                    maintaining 1,450+ automated UI, end to end and API tests,
-                    and cut the full regression cycle from two days to one.
-                  </li>
-                  <li>
-                    Monitored production quality with Kibana, Grafana, Sentry
-                    and Chrome DevTools, triaging incoming errors and crash
-                    reports, reproducing customer-reported issues and tracing
-                    defects to the responsible service rather than the symptom.
-                  </li>
-                  <li>
-                    Ran load and stress testing with JMeter against critical
-                    trading and reporting endpoints, and covered the security
-                    basics — OWASP ZAP scans plus manual authentication and
-                    authorisation checks — before major releases.
-                  </li>
-                  <li>
-                    Pioneered AI-assisted QA practices on the team — integrated
-                    Claude Code, MCP, Cursor and AI agents into daily workflows
-                    for test-case generation, log analysis and defect triage,
-                    cutting test authoring and failure-triage time on each
-                    regression cycle from roughly 4 hours to 1.5.
-                  </li>
-                  <li>
-                    Mentored and onboarded junior QA engineers, cutting ramp-up
-                    time from 5 weeks to 2 by writing the process documentation,
-                    framework guides and best-practice playbooks the team still
-                    runs on.
-                  </li>
-                </ul>
-              </article>
-            </section>
+                <span class="cv-when">March 2021 &ndash; July 2026</span>
+              </div>
+              <p class="cv-org">Lime Trading &middot; an award-winning broker-dealer operating in the USA</p>
+              <ul class="cv-points">
+                <li>
+                  Built the QA function from scratch as the first and only QA engineer on the team &mdash; defined
+                  the test strategy, test plan and entry and exit criteria, set up the defect workflow and test
+                  documentation in Jira, TestRail, Qase and Confluence, and stood up the full automation
+                  infrastructure for web, iOS, Android and backend microservices.
+                </li>
+                <li>
+                  Designed and maintained the manual regression suite and release checklists using formal
+                  test-design techniques &mdash; equivalence partitioning, boundary value analysis, decision tables,
+                  state transition and pairwise testing &mdash; prioritised by risk, and complemented them with
+                  session-based exploratory testing to find what scripted cases miss.
+                </li>
+                <li>
+                  Reviewed requirements and acceptance criteria before development started, maintained a
+                  traceability matrix from requirement to test case to defect, and resolved specification
+                  ambiguity at the design stage rather than in QA.
+                </li>
+                <li>
+                  Owned release quality across 48+ releases &mdash; ran release regression and smoke testing,
+                  coordinated UAT, prioritised defects by severity and impact, and documented 600+ defects in Jira
+                  with a reopen rate below 5%.
+                </li>
+                <li>
+                  Built the first automated UI and E2E suites with Selenium and Python, then led the migration to
+                  Playwright and TypeScript as the front end matured &mdash; re-architecting around the Page Object
+                  Model, API-driven test data setup and teardown, role-based session fixtures and parallel
+                  execution, and replacing sleeps with explicit state polling so the suite was reliable enough to
+                  gate releases on. Playwright traces, video and screenshots cut failure triage time sharply.
+                </li>
+                <li>
+                  Established mobile testing and automation for iOS and Android with Appium (XCUITest driver), real
+                  devices and BrowserStack, covering critical user flows across a device and OS version matrix and
+                  catching platform-specific defects before release; handled WebDriverAgent signing, provisioning
+                  profiles and native selector stability.
+                </li>
+                <li>
+                  Built the API automation layer with Pytest and Requests against REST and gRPC services documented
+                  in Swagger/OpenAPI, and validated backend correctness end to end &mdash; advanced SQL against
+                  PostgreSQL and MySQL plus Kafka and RabbitMQ message flows between microservices.
+                </li>
+                <li>
+                  Integrated every suite into CI/CD (TeamCity, Jenkins, GitHub Actions) as a tiered pipeline &mdash;
+                  smoke on every pull request as a merge gate, full regression nightly and pre-release, per-service
+                  suites on deploy to staging &mdash; running in Docker against Kubernetes-deployed test
+                  environments, with Allure reporting and failure artifacts for flake-history analysis.
+                </li>
+                <li>
+                  <strong>Reduced production defects by 60%</strong> by designing and maintaining 1,450+ automated
+                  UI, E2E and API tests, and <strong>cut the full regression cycle from two days to one</strong>.
+                </li>
+                <li>
+                  Monitored production quality with Kibana, Grafana, Sentry and Chrome DevTools &mdash; triaging
+                  incoming errors and crash reports, reproducing customer-reported issues and tracing defects to the
+                  responsible service rather than the symptom.
+                </li>
+                <li>
+                  Ran load and stress testing with JMeter against critical trading and reporting endpoints, and
+                  covered the security basics &mdash; OWASP ZAP scans plus manual authentication and authorisation
+                  checks &mdash; before major releases.
+                </li>
+                <li>
+                  Pioneered AI-assisted QA on the team &mdash; integrated Claude Code, MCP, Cursor and AI agents into
+                  daily workflows for test case generation, log analysis and defect triage,
+                  <strong>cutting test authoring and failure triage per regression cycle from about 4 hours to
+                  1.5</strong>.
+                </li>
+                <li>
+                  Mentored and onboarded junior QA engineers, <strong>cutting ramp-up from 5 weeks to 2</strong> by
+                  writing the process documentation, framework guides and playbooks the team still runs on.
+                </li>
+              </ul>
+            </div>
+          </section>
 
-            <section class="cv-section">
-              <h2>Selected projects</h2>
-              <article class="cv-role">
-                <h3>Agentic Playwright suite</h3>
-                <p class="where">
-                  Public, github.com/artemcherbaev/agentic-playwright-suite
-                </p>
-                <ul>
-                  <li>
-                    Twenty functional and twenty visual cases against a public
-                    demo storefront, functional cases replayed on WebKit.
-                  </li>
-                  <li>
-                    Authored and repaired by Claude Code agents over Playwright
-                    MCP; the pipeline itself runs no model.
-                  </li>
-                  <li>
-                    Every CI job runs inside an image the pipeline builds first;
-                    Allure dashboards and a suite health page publish on every
-                    push to main.
-                  </li>
-                </ul>
-              </article>
-              <article class="cv-role">
-                <h3>This portfolio</h3>
-                <p class="where">Public, github.com/artemcherbaev/portfolio</p>
-                <ul>
-                  <li>
-                    Hand written static site, no framework and no build step,
-                    with a Playwright smoke suite that gates the Pages deploy.
-                  </li>
-                </ul>
-              </article>
-            </section>
+          <section class="cv-section" aria-labelledby="cvProjects">
+            <h2 id="cvProjects">Public projects</h2>
+            <ul class="cv-points">
+              <li>
+                <a href="https://github.com/ArtemCherbaev/agentic-playwright-suite"><strong>Agentic Playwright Suite</strong></a>
+                &mdash; end-to-end, visual regression and REST API tests in Playwright and TypeScript, authored and
+                repaired by Claude Code agents over Playwright MCP, run in a containerised GitHub Actions pipeline
+                that publishes Allure reports, a suite health page and a replayable run feed.
+              </li>
+              <li>
+                <a href="https://github.com/ArtemCherbaev/quality-lab"><strong>Quality Lab</strong></a> &mdash; a
+                controlled store with Playwright UI and API tests, accessibility checks, evidence-based failure
+                triage, reviewed repair proposals and a documented bug investigation.
+              </li>
+            </ul>
+          </section>
 
-            <section class="cv-section">
-              <h2>Skills</h2>
-              <article class="cv-role">
-                <h3>Testing types</h3>
-                <p class="skills-line">
-                  Functional, non-functional, regression, smoke, sanity,
-                  integration, end to end, system, acceptance (UAT),
-                  exploratory, ad-hoc, API, UI, web, mobile (Android/iOS),
-                  database, cross-browser, cross-platform, responsive,
-                  compatibility, usability, performance, load, security.
-                </p>
-              </article>
-              <article class="cv-role">
-                <h3>Test design and analysis</h3>
-                <p class="skills-line">
-                  Equivalence partitioning, boundary value analysis, decision
-                  tables, state transition testing, pairwise testing, risk-based
-                  testing, error guessing, session-based exploratory testing,
-                  test plan, test strategy, test cases and checklists,
-                  traceability matrix, entry/exit criteria, requirements
-                  analysis, acceptance criteria review, defect lifecycle,
-                  severity and priority triage, root cause analysis, shift-left
-                  testing, test data management.
-                </p>
-              </article>
-              <article class="cv-role">
-                <h3>Automation</h3>
-                <p class="skills-line">
-                  <strong>Web:</strong> Playwright (TypeScript and Python),
-                  traces and fixtures, Selenium WebDriver, Cypress, Pytest, Page
-                  Object Model, parallel execution, flaky-test triage, framework
-                  design from scratch.<br />
-                  <strong>API and backend:</strong> Pytest, Requests, Postman,
-                  Swagger/OpenAPI, REST, gRPC, Kafka and RabbitMQ message
-                  validation, SQL data validation, test data setup via API.<br />
-                  <strong>Mobile:</strong> Appium, XCUITest, BrowserStack,
-                  Android Studio, Xcode, real devices and emulators, device/OS
-                  version matrix, Charles Proxy, Fiddler.
-                </p>
-              </article>
-              <article class="cv-role">
-                <h3>CI/CD, infrastructure and observability</h3>
-                <p class="skills-line">
-                  Jenkins, TeamCity, GitHub Actions, Docker, Kubernetes, Linux,
-                  Bash, Git, pipeline design, test environment setup,
-                  containerised test execution. Kibana (ELK), Grafana, Sentry,
-                  Chrome DevTools, log analysis, crash and stack-trace triage.
-                </p>
-              </article>
-              <article class="cv-role">
-                <h3>AI-assisted QA</h3>
-                <p class="skills-line">
-                  Claude Code, MCP (Model Context Protocol), Cursor, AI agents,
-                  prompt engineering, AI-assisted test generation, AI-assisted
-                  log analysis and defect triage, testing AI-powered features.
-                </p>
-              </article>
-              <article class="cv-role">
-                <h3>Performance, security and process</h3>
-                <p class="skills-line">
-                  JMeter, load and stress testing, response-time analysis, OWASP
-                  ZAP, authentication and authorisation testing. Agile, Scrum,
-                  Kanban, SDLC, STLC, test automation strategy, sprint planning
-                  and grooming, definition of done, code review, release
-                  management, QA process design from zero, mentoring and
-                  onboarding, remote and distributed teams.
-                </p>
-              </article>
-            </section>
+          <section class="cv-section" aria-labelledby="cvSkills">
+            <h2 id="cvSkills">Skills</h2>
+            <dl class="cv-skills">
+              <div>
+                <dt>Web automation</dt>
+                <dd>
+                  Playwright (TypeScript and Python), traces and fixtures, Selenium WebDriver, Cypress, Pytest, Page
+                  Object Model, parallel execution, flaky-test triage, framework design from scratch
+                </dd>
+              </div>
+              <div>
+                <dt>API &amp; backend</dt>
+                <dd>
+                  Pytest, Requests, Postman, Swagger/OpenAPI, REST, gRPC, Kafka and RabbitMQ message validation, SQL
+                  data validation, test data setup via API
+                </dd>
+              </div>
+              <div>
+                <dt>Mobile</dt>
+                <dd>
+                  Appium, XCUITest, BrowserStack, Android Studio, Xcode, real devices and simulators, device and OS
+                  matrix, Charles Proxy, Fiddler
+                </dd>
+              </div>
+              <div>
+                <dt>CI/CD &amp; infrastructure</dt>
+                <dd>
+                  Jenkins, TeamCity, GitHub Actions, Docker, Kubernetes, Linux, Bash, Git, pipeline design, test
+                  environment setup, containerised test execution
+                </dd>
+              </div>
+              <div>
+                <dt>AI-assisted QA</dt>
+                <dd>
+                  Claude Code, MCP, Cursor, AI agents, prompt engineering, AI-assisted test generation, log analysis
+                  and defect triage, testing AI-powered features
+                </dd>
+              </div>
+              <div>
+                <dt>Performance &amp; security</dt>
+                <dd>JMeter, load and stress testing, response-time analysis, OWASP ZAP, authentication and authorisation testing</dd>
+              </div>
+              <div>
+                <dt>Observability</dt>
+                <dd>Kibana (ELK), Grafana, Sentry, Chrome DevTools, log, network and console analysis, crash and stack-trace triage</dd>
+              </div>
+              <div>
+                <dt>Test design</dt>
+                <dd>
+                  Equivalence partitioning, boundary value analysis, decision tables, state transitions, pairwise,
+                  risk-based testing, error guessing, session-based exploratory testing, traceability (RTM), shift-left
+                </dd>
+              </div>
+              <div>
+                <dt>Management</dt>
+                <dd>Jira, TestRail, Qase, Zephyr, Allure, Allure TestOps, Confluence, QA metrics and reporting, release notes</dd>
+              </div>
+              <div>
+                <dt>Languages &amp; data</dt>
+                <dd>Python, JavaScript, TypeScript, SQL, HTML, CSS, PostgreSQL, MySQL, MongoDB</dd>
+              </div>
+              <div>
+                <dt>Process</dt>
+                <dd>
+                  Agile, Scrum, Kanban, SDLC and STLC, test automation strategy, release management, code review, QA
+                  process design from zero, mentoring and onboarding, remote and distributed teams
+                </dd>
+              </div>
+            </dl>
+          </section>
 
-            <section class="cv-section">
-              <h2>Education</h2>
-              <article class="cv-role">
-                <h3>Bachelor of Computer Science</h3>
-                <p class="where">Moscow State University (MSU)</p>
-                <p class="when">2016 to 2020</p>
-              </article>
+          <div class="cv-two">
+            <section class="cv-section" aria-labelledby="cvEducation">
+              <h2 id="cvEducation">Education</h2>
+              <p><strong>Moscow State University</strong><br />Bachelor of Computer Science, 2016 &ndash; 2020</p>
+            </section>
+            <section class="cv-section" aria-labelledby="cvLanguages">
+              <h2 id="cvLanguages">Languages</h2>
+              <p>English (C1), Russian (native)</p>
             </section>
           </div>
-
-          <aside>
-            <div class="cv-aside">
-              <h2>Contact</h2>
-              <ul>
-                <li>
-                  <a href="mailto:artemcherbaevjob@gmail.com"
-                    >artemcherbaevjob@gmail.com</a
-                  >
-                </li>
-                <li><a href="tel:+5541991866413">+55 41 99186 6413</a></li>
-                <li>
-                  <a href="https://linkedin.com/in/artemcherbaev"
-                    >linkedin.com/in/artemcherbaev</a
-                  >
-                </li>
-                <li>
-                  <a href="https://github.com/artemcherbaev"
-                    >github.com/artemcherbaev</a
-                  >
-                </li>
-                <li>Curitiba, Brazil. UTC&minus;3</li>
-              </ul>
-            </div>
-
-            <div class="cv-aside">
-              <h2>Core stack</h2>
-              <ul>
-                <li>Playwright, TypeScript, Python</li>
-                <li>Pytest, Selenium, Appium</li>
-                <li>REST, gRPC, Kafka, RabbitMQ</li>
-                <li>GitHub Actions, TeamCity, Jenkins</li>
-                <li>Docker, Kubernetes, Linux</li>
-                <li>Allure, Jira, TestRail, Qase</li>
-                <li>Claude Code, MCP, agents</li>
-              </ul>
-            </div>
-
-            <div class="cv-aside">
-              <h2>Measured</h2>
-              <ul>
-                <li>60% fewer production defects</li>
-                <li>Regression cycle 2 days to 1</li>
-                <li>Authoring and triage 4h to 1.5h</li>
-                <li>Onboarding ramp 5 weeks to 2</li>
-              </ul>
-            </div>
-
-            <div class="cv-aside">
-              <h2>Languages</h2>
-              <ul>
-                <li>English, C1</li>
-                <li>Russian, native</li>
-              </ul>
-            </div>
-          </aside>
-        </div>
+        </article>
       </div>
     </main>
 
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <span>&copy; <span id="year">2026</span> Artem Cherbaev</span>
-        <span><a href="index.html">Back to the portfolio</a></span>
+        <span>&copy; 2026 Artem Cherbaev</span>
+        <nav aria-label="Footer">
+          <a href="./">Home</a>
+          <a href="qa-suite.html">The suite, replayed</a>
+          <a href="https://www.linkedin.com/in/artemcherbaev">LinkedIn</a>
+        </nav>
+        <span class="footer-note" id="buildNote">Built by hand, tested on every push</span>
       </div>
     </footer>
-
-    <script src="assets/js/main.js?v=20260919"></script>
   </body>
 </html>

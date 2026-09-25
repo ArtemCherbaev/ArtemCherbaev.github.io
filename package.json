@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Personal portfolio and CV, published with GitHub Pages and gated by a Playwright smoke suite",
+  "description": "Artem Cherbaev, QA Engineer: portfolio, CV and a replay of the Agentic Playwright Suite's last CI run. Published with GitHub Pages once its own Playwright suite passes.",
   "type": "module",
   "packageManager": "yarn@4.5.3",
   "engines": {
@@ -10,13 +10,16 @@
   },
   "scripts": {
     "serve": "node scripts/serve.mjs",
+    "serve:fixture": "node scripts/serve.mjs 4174 --feed-dir tests/fixtures/feed/passed",
     "test": "playwright test",
     "test:headed": "playwright test --headed",
     "test:report": "playwright show-report",
+    "check:feed": "node scripts/check-feed.mjs",
     "playwright:install": "playwright install --with-deps chromium"
   },
   "devDependencies": {
-    "@playwright/test": "^1.49.0",
+    "@axe-core/playwright": "^4.11.0",
+    "@playwright/test": "1.63.0",
     "@types/node": "^22.10.0"
   }
 }

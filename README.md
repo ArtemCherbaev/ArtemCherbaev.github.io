@@ -1,12 +1,18 @@
-# Portfolio
+# artemcherbaev.github.io
 
-Personal landing page and CV for Artem Cherbaev, published with GitHub Pages.
+Portfolio and CV of Artem Cherbaev, QA Engineer — and a page that replays the last CI run of the
+[Agentic Playwright Suite](https://github.com/ArtemCherbaev/agentic-playwright-suite), lane by lane,
+from the feed that suite's pipeline publishes.
 
-Hand written: four HTML pages, one stylesheet, one script, no framework and no build step. What is in
-the repository is what Pages serves. The only machinery is a Playwright smoke suite, and it gates the
-deploy, so a page that fails it is not published.
+[![CI](https://github.com/ArtemCherbaev/ArtemCherbaev.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/ArtemCherbaev/ArtemCherbaev.github.io/actions/workflows/ci.yml)
+[![Run feed](https://github.com/ArtemCherbaev/ArtemCherbaev.github.io/actions/workflows/feed.yml/badge.svg)](https://github.com/ArtemCherbaev/ArtemCherbaev.github.io/actions/workflows/feed.yml)
 
-Live at <https://artemcherbaev.github.io/portfolio/> once Pages is enabled.
+**Live:** <https://artemcherbaev.github.io/> · [the suite, replayed](https://artemcherbaev.github.io/qa-suite.html)
+· [CV](https://artemcherbaev.github.io/cv.html)
+
+Hand-written HTML, CSS and JavaScript: no framework, no build step, no trackers, no third-party
+requests. What is in the repository is what Pages serves, minus the tooling. A Playwright suite has to
+pass before anything is deployed.
 
 ## Run it
 
@@ -14,55 +20,64 @@ Live at <https://artemcherbaev.github.io/portfolio/> once Pages is enabled.
 corepack enable
 yarn install
 yarn playwright:install
-yarn serve            # http://127.0.0.1:4173
-yarn test             # the smoke suite, starts the server itself
+yarn serve              # http://127.0.0.1:4173, the suite's real feed proxied in
+yarn serve:fixture      # http://127.0.0.1:4174, a recorded feed instead
+yarn test               # the site's suite; starts its own server
 ```
 
-`yarn test` runs the suite on desktop Chromium and on a Pixel 7 viewport. The second project is not
-decoration: the navigation collapses below 680px and the hero reorders, and both have broken before.
+On Windows without an elevated shell, `corepack enable` fails with EPERM; prefix the commands instead:
+`corepack yarn install`, `corepack yarn test`.
 
-## What the suite checks
-
-| File                                         | Covers                                                                                                                                                                               |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [`tests/smoke.spec.ts`](tests/smoke.spec.ts) | Each page answers 200, is titled, has exactly one `h1`, logs no console error. The expanders, the contact form and its labels, the 404 page, heading order, alt text, the skip link. |
-| [`tests/links.spec.ts`](tests/links.spec.ts) | Every internal link and asset resolves. That the stylesheet applied rather than merely downloaded. The canonical URL and the meta description.                                       |
-
-External links are not followed. A third party being down is not a defect in this repository.
-
-## Structure
+## How the pieces fit
 
 ```
-index.html         Landing page: hero, about, experience, skills, impact, projects, contact
-cv.html            Full career history, print styled as the fallback for the PDF
-qa-suite.html      How to run the test suite project, and what each published report answers
-404.html           Served with a 404 status by Pages and by the local server
-assets/css/        styles.css owns the tokens; pages.css is the sub pages and print
-assets/js/         One progressive enhancement script. The site works without it.
-assets/img/        Favicon and portrait
-assets/cv/         Drop Artem-Cherbaev-CV.pdf here
-scripts/serve.mjs  Dependency free static server, used by the suite and by yarn serve
-tests/             The smoke suite
+agentic-playwright-suite (another repository)
+  └─ CI on every push to main, and daily
+       └─ publishes /agentic-playwright-suite/ on this same domain:
+            Allure reports, suite health, traces, and feed/latest.json (schema apw-feed/1)
+
+this repository
+  ├─ index.html     the home page; the hero card, the header pill and the live panel read the feed
+  ├─ qa-suite.html  the runner: the last run replayed on one time axis, every case, run history
+  ├─ cv.html        the CV as a page, print-styled; the PDF is in assets/cv/
+  └─ 404.html       served with a 404 status by Pages and by the local server
 ```
 
-## Before this goes live
+The feed is read from the same origin, so there is no cross-origin request. Every widget that shows a
+number has to survive the feed being unavailable or malformed: it then shows links to the published
+reports instead of numbers nobody measured. The tests prove both cases.
 
-Content that is still a placeholder is marked in the pages with the `.todo` class, which renders as
-amber dotted text so nothing unfinished can ship unnoticed. The full list is in
-[`PLACEHOLDERS.md`](PLACEHOLDERS.md).
+## The suite
 
-Two more steps that are not content:
+| File                                     | Covers                                                                                                                  |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| [`pages.spec.ts`](tests/pages.spec.ts)   | Every page answers, is titled, has one h1, a language, a description and a canonical URL; headings never skip; no sideways scroll; the 404; the theme choice survives a reload |
+| [`links.spec.ts`](tests/links.spec.ts)   | Every internal link and asset resolves, every external link is https, every fragment exists, the CV is a real PDF, the stylesheet actually applies |
+| [`home.spec.ts`](tests/home.spec.ts)     | The widgets from a passing, a failing, an unavailable and a malformed feed; the email composer; copying the address; the phone menu; the skip link |
+| [`runner.spec.ts`](tests/runner.spec.ts) | The runner against recorded feeds: exact totals, one block per case, the replay's controls, filters and search, source links at the commit that ran, history, reduced motion, the error state |
+| [`a11y.spec.ts`](tests/a11y.spec.ts)     | An axe-core scan of every page in both themes, after the suite's numbers have rendered                                  |
 
-1. **Pages.** Settings, Pages, Source: GitHub Actions. The workflow does the rest.
-2. **The contact form.** `index.html` points at `https://formspree.io/f/REPLACE_ME`. Until that is a
-   real endpoint the form is inert on purpose, rather than quietly dropping mail.
+Every test also fails on any browser console error, which is how a Content Security Policy refusing a
+style gets noticed. It runs on desktop Chromium and on a Pixel 7 viewport.
 
-## Why it looks like this
+Recorded feeds live in [`tests/fixtures/feed/`](tests/fixtures/feed). Tests never fetch the real one,
+so a red run in the suite's repository cannot turn this one red. The real one is checked every day by
+[`feed.yml`](.github/workflows/feed.yml) with [`scripts/check-feed.mjs`](scripts/check-feed.mjs), from the
+reading side, with the site's own reader.
 
-The design owes its layout and palette to the portfolio of
-[Emanuela Telescu](https://ella79.github.io/portfolio/), which is worth reading on its own terms. The
-code here is written from scratch and the content is mine.
+## Deploy
+
+[`ci.yml`](.github/workflows/ci.yml): the suite runs; on `main` only, `stamp.mjs` writes `build.json`
+from the suite's own JSON report — the footer's "deployed after N checks passed" — and `assemble.mjs`
+copies the published files, and only those, into the Pages artefact. Pages is set to deploy from
+GitHub Actions.
+
+## Credits
+
+The idea of a QA portfolio that replays a public suite's last CI run comes from
+[Emanuela Telescu's portfolio](https://ella79.github.io/portfolio/). The design, code and content here
+are my own.
 
 ## Licence
 
-Code MIT, content all rights reserved. See [`LICENSE.md`](LICENSE.md).
+Code MIT, content all rights reserved, fonts OFL. See [`LICENSE.md`](LICENSE.md).

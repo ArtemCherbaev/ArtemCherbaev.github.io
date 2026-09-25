@@ -1,0 +1,29 @@
+name: Run feed
+
+# The runner page reads a feed another repository publishes. That repository
+# checks the feed before it publishes; this checks it from the reading side,
+# every day, with the site's own reader. A change on either side that breaks
+# the page fails here, and GitHub tells the owner, before a visitor finds it.
+
+on:
+  schedule:
+    - cron: '41 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  contract:
+    name: The published feed is one this site can read
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+      - run: node scripts/check-feed.mjs

@@ -7,51 +7,70 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# A queued deploy should not race the one already publishing.
 concurrency:
-  group: pages-${{ github.ref }}
-  cancel-in-progress: false
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: read
 
-jobs:
-  smoke:
-    name: Smoke suite
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
-      - uses: actions/setup-node@v4
+jobs:
+  # The site's own suite. A page that fails it is not published: the deploy
+  # below needs this job, and the artefact it deploys is assembled here, from
+  # the commit that passed.
+  test:
+    name: Site suite
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # Corepack first: setup-node's cache probe runs `yarn cache dir` with the
+      # runner's global Yarn 1, which refuses a project pinned to Yarn 4.
+      - run: corepack enable
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: 20
+          node-version: 24
           cache: yarn
 
-      - name: Install dependencies
-        run: |
-          corepack enable
-          yarn install --immutable
+      - run: yarn install --immutable
 
-      - name: Install Chromium
-        run: yarn playwright install --with-deps chromium
+      - run: yarn playwright install --with-deps chromium
 
-      - name: Run the smoke suite
-        run: yarn test
+      - run: yarn test
 
-      - name: Publish the report as an artefact
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always()
-        uses: actions/upload-artifact@v4
         with:
           name: playwright-report
           path: playwright-report/
           retention-days: 14
 
+      - name: Stamp what this commit passed
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: node scripts/stamp.mjs reports/results.json build.json
+
+      - name: Assemble the published files
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: node scripts/assemble.mjs _site
+
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          path: _site
+
   deploy:
     name: Publish to Pages
-    # The gate: a page that fails the smoke suite does not get published.
-    needs: smoke
+    needs: test
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     permissions:
       pages: write
       id-token: write
@@ -59,15 +78,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/configure-pages@v5
-
-      - name: Upload the site
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # The working tree is the site. There is no build step to go wrong.
-          path: .
-
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
