@@ -952,13 +952,15 @@ a.run-card:hover {
 .spark {
   display: flex;
   align-items: flex-end;
+  justify-content: flex-end;
   gap: 3px;
   height: 28px;
 }
 
 .spark span {
-  flex: 1;
+  flex: 1 1 0;
   min-width: 3px;
+  max-width: 10px;
   border-radius: 2px;
   background: var(--pass);
   opacity: 0.85;
